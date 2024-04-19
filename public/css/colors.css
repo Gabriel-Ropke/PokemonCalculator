@@ -1,0 +1,16 @@
+@font-face {
+  font-family: "pokemon-solid";
+  src: url("../../fonts/pokemon/Pokemon Solid.ttf");
+}
+@font-face {
+  font-family: "pokemon-hollow";
+  src: url("../../fonts/pokemon/Pokemon Hollow.ttf");
+}
+@font-face {
+  font-family: "press-start-2p";
+  src: url("../../fonts/Press_Start_2P/PressStart2P-Regular.ttf");
+}
+@font-face {
+  font-family: "permanent-marker";
+  src: url("../../fonts/Permanent_Marker/PermanentMarker-Regular.ttf");
+}/*# sourceMappingURL=colors.css.map */

@@ -1,0 +1,246 @@
+@font-face {
+  font-family: "pokemon-solid";
+  src: url("../../fonts/pokemon/Pokemon Solid.ttf");
+}
+@font-face {
+  font-family: "pokemon-hollow";
+  src: url("../../fonts/pokemon/Pokemon Hollow.ttf");
+}
+@font-face {
+  font-family: "press-start-2p";
+  src: url("../../fonts/Press_Start_2P/PressStart2P-Regular.ttf");
+}
+@font-face {
+  font-family: "permanent-marker";
+  src: url("../../fonts/Permanent_Marker/PermanentMarker-Regular.ttf");
+}
+body {
+  height: 200vh;
+}
+
+header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: rgb(60, 60, 60);
+  height: 60px;
+  transition: 0.3s ease;
+  z-index: 1000;
+}
+header nav {
+  width: 100%;
+}
+header nav ul {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 0;
+  gap: 10px;
+  width: 100%;
+}
+header nav ul li {
+  width: 150px;
+  white-space: nowrap;
+  text-align: center;
+}
+header nav ul li a {
+  font-size: 18px;
+  font-weight: 500;
+  letter-spacing: 1px;
+  color: rgb(240, 230, 230);
+  transition: 0.2s ease;
+}
+header nav ul li a:hover {
+  font-size: 20px;
+  letter-spacing: 2px;
+  filter: brightness(0.9);
+}
+header.inactive {
+  height: 40px;
+}
+header:hover {
+  height: 80px;
+}
+
+main {
+  margin-top: 50px;
+}
+main section#carrousel {
+  position: relative;
+  width: 100%;
+  height: 90vh;
+  overflow: hidden;
+  background: pink;
+}
+main section#carrousel div.imgContainer {
+  width: 100%;
+  height: 100%;
+}
+main section#carrousel div.imgContainer#first {
+  background: orange;
+}
+main section#carrousel div.imgContainer#second {
+  background: pink;
+}
+main section#carrousel div.imgContainer#third {
+  background-color: black;
+}
+main section#carrousel div.imgContainer img {
+  width: 100%;
+  height: 100%;
+}
+main section#carrousel div#pointers {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  gap: 20px;
+  padding: 10px 0;
+  width: 100%;
+}
+main section#carrousel div#pointers input {
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  border: 2px solid white;
+  background: transparent;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+main section#carrousel div#pointers input:hover, main section#carrousel div#pointers input.selected {
+  background: white;
+}
+main section#marketplace {
+  width: 100%;
+  min-height: 100vh;
+  background: rgb(60, 60, 60);
+}
+main section#marketplace div#marketFilterSection {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 15px 25px;
+  gap: 40px;
+  color: rgb(240, 230, 230);
+}
+main section#marketplace div#marketFilterSection span.filter-span-container {
+  background: rgb(112, 112, 112);
+  padding: 10px 15px;
+  border-radius: 5px;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+          user-select: none;
+  cursor: pointer;
+}
+main section#marketplace div#marketFilterSection span.filter-span-container:hover {
+  filter: brightness(0.9);
+}
+main section#marketplace menu#marketplaceProducts {
+  width: 100%;
+  height: 100vh;
+  background: rgb(112, 112, 112);
+}
+main section#marketplace menu#marketplaceProducts ul#products {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  padding: 25px;
+}
+main section#marketplace menu#marketplaceProducts ul#products li.product {
+  position: relative;
+  width: 220px;
+  height: 250px;
+  border-radius: 20px;
+  background: rgb(60, 60, 60);
+  color: rgb(240, 230, 230);
+  cursor: pointer;
+}
+main section#marketplace menu#marketplaceProducts ul#products li.product div.top {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  padding: 10px 15px;
+}
+main section#marketplace menu#marketplaceProducts ul#products li.product.item {
+  height: 220px;
+}
+main section#marketplace menu#marketplaceProducts ul#products li.product.item div.bottom {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  padding: 10px;
+  overflow: hidden;
+  width: 100%;
+}
+main section#marketplace menu#marketplaceProducts ul#products li.product.item div.bottom p {
+  height: 50px;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+main section#marketplace menu#marketplaceProducts ul#products li.product.item div.itemContainer {
+  position: absolute;
+  top: 50px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+main section#marketplace menu#marketplaceProducts ul#products li.product.item div.itemContainer img {
+  max-height: 90px;
+}
+main section#marketplace menu#marketplaceProducts ul#products li.product.pokemon div.pokemonContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  top: 40px;
+  left: 0;
+  flex-wrap: wrap;
+  gap: 10px;
+  width: 100%;
+  padding: 0 5px;
+}
+main section#marketplace menu#marketplaceProducts ul#products li.product.pokemon div.pokemonContainer img {
+  max-height: 90px;
+}
+main section#marketplace menu#marketplaceProducts ul#products li.product.pokemon div.pokemonContainer div.types {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2px;
+  width: 100%;
+}
+main section#marketplace menu#marketplaceProducts ul#products li.product.pokemon div.pokemonContainer div.types span {
+  width: 50%;
+  text-align: center;
+  padding: 5px;
+  border-radius: 5px;
+  text-transform: capitalize;
+}
+main section#marketplace menu#marketplaceProducts ul#products li.product.pokemon div.bottom {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  padding: 10px 0;
+  flex-wrap: wrap;
+  gap: 10px;
+  width: 100%;
+}
+main section#marketplace menu#marketplaceProducts ul#products li.product.pokemon div.bottom ul.ivs {
+  display: flex;
+  flex-wrap: wrap;
+}
+main section#marketplace menu#marketplaceProducts ul#products li.product.pokemon div.bottom ul.ivs li {
+  width: 33.3333333333%;
+  text-align: center;
+}/*# sourceMappingURL=marketplace.css.map */

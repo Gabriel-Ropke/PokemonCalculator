@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="public/css/calculator.css">
+    <script type="module" defer src="public/js/start.js"></script>
+    <script type="module" defer src="public/js/informations.js"></script>
+    <script type="module" defer src="public/js/result.js"></script>
+    <title>Calculator</title>
+</head>
+<body>
+    <main>
+        <section id="pokemonSection">
+            <h1>Select Your Pokémon</h1>
+            <ul id="pokemonList">
+                
+            </ul>
+            <div id="selectedPokemon">
+                <div id="selectedPokemonBackground"></div>
+                <img src="public/img/charizard.png" alt="" id="pokemon">
+                <h2 id="selectedPokemonName">Zubat</h2>
+                <menu id="selectedPokemonOptions">
+                    <ul>
+                        <li>
+                            Press Delete or Backspace to cancel
+                        </li>
+                        <li>
+                            Press Enter to choice
+                        </li>
+                    </ul>
+                </menu>
+            </div>
+            <span id="spanSelect">Press Enter to Select Your Pokémon</span>
+        </section>
+        <div id="transitionScreen"></div>
+        <section id="informationSection" class="hidden">
+            <h1>Adicione os Dados de seu Pokémon</h1>
+            <div id="informationContent">
+                <div id="naturesContainer">
+                    <h2>Natures</h2>
+                    <ul id="naturesList">
+    
+                    </ul>
+                </div>
+                <div id="ivsContainer">
+                    <h2>IV's</h2>
+                    <div id="inputsContainer">
+                        <input type="range" name="hp" id="hp" min="0" max="31" value="0" data-value="0">
+                        <input type="range" name="atk" id="atk" min="0" max="31" value="0" data-value="0">
+                        <input type="range" name="def" id="def" min="0" max="31" value="0" data-value="0">
+                        <input type="range" name="sp.atk" id="sp.atk" min="0" max="31" value="0" data-value="0">
+                        <input type="range" name="sp.def" id="sp.def" min="0" max="31" value="0" data-value="0">
+                        <input type="range" name="speed" id="speed" min="0" max="31" value="0" data-value="0">
+                    </div>
+                </div>
+            </div>
+            <button id="buttonCheck" disabled>Check Your Pokémon!</button>
+        </section>
+        <section id="resultSection" class="hidden">
+            <h1>Avaliação do seu Pokémon</h1>
+            <div id="top">
+                <div id="pokemonImageContainer">
+                    <img src="public/img/charizard.png" alt="">
+                </div>
+                <div id="pokemonStatusContainer">
+                    <div class="stat">
+                        <span class="stat-name">HP</span>
+                        <div class="out-bar">
+                            <div class="inner-bar">
+                                <span class="stat-value">50</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-name">Atk</span>
+                        <div class="out-bar">
+                            <div class="inner-bar">
+                                <span class="stat-value">50</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-name">Def</span>
+                        <div class="out-bar">
+                            <div class="inner-bar">
+                                <span class="stat-value">50</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-name">Sp.Atk</span>
+                        <div class="out-bar">
+                            <div class="inner-bar">
+                                <span class="stat-value">50</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-name">Sp.Def</span>
+                        <div class="out-bar">
+                            <div class="inner-bar">
+                                <span class="stat-value">50</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-name">Speed</span>
+                        <div class="out-bar">
+                            <div class="inner-bar">
+                                <span class="stat-value">50</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="avaliation">
+                <div id="pokemonMovesetAvaliation">
+                    <ul>
+                    </ul>
+                </div>
+                <div id="pokemonNatureAvaliation">
+                    <h4 class="nature">Adamant</h4>
+                    <div>
+                        <span class="increase">+ Sp.Atk</span>
+                        <span class="decrease">- Atk</span>
+                    </div>
+                </div>
+                <div id="pokemonIvAvaliation">
+                    <ul>
+                        <li data-value="30">
+                            <span class="iv-name">hp</span>
+                            <span class="iv-value">30/31</span>
+                        </li>
+                        <li data-value="30">
+                            <span class="iv-name">atk</span>
+                            <span class="iv-value">30/31</span>
+                        </li>
+                        <li data-value="30">
+                            <span class="iv-name">def</span>
+                            <span class="iv-value">30/31</span>
+                        </li>
+                        <li data-value="30">
+                            <span class="iv-name">sp.atk</span>
+                            <span class="iv-value">30/31</span>
+                        </li>
+                        <li data-value="30">
+                            <span class="iv-name">sp.def</span>
+                            <span class="iv-value">30/31</span>
+                        </li>
+                        <li data-value="30">
+                            <span class="iv-name">speed</span>
+                            <span class="iv-value">30/31</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div id="resultNote">
+                <div class="note-img-container">
+                    <img src="public/img/A-rank.png" alt="">
+                </div>
+                <span class="final-note">
+                    Rank S 
+                    Score 100
+                </span>
+                <ul id="resultList">
+                    <li>
+                        <span>Pokémon: <span class="item-note pokemon-note">10/10</span></span>
+                    </li>
+                    <li>
+                        <span>Nature: <span class="item-note nature-note">10/10</span></span>
+                    </li>
+                    <li>
+                        <span>Iv's: <span class="item-note iv-note">10/10</span></span>
+                    </li>
+                </ul>
+                <button class="close-btn">X</button>
+            </div>
+        </section>
+    </main>
+</body>
+</html>

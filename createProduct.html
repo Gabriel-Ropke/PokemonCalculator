@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="public/css/reset.css">
+    <link rel="stylesheet" href="public/css/createproduct.css">
+    <script type="module" defer src="public/js/createProduct.js"></script>
+    <title>Criar Produto</title>
+</head>
+<body>
+    <h1>Crie já seu Produto :D</h1>
+    <a href="#" id="return">< Voltar</a>
+    <main>
+
+        <form action="POST">
+            <div id="typeOfProduct" class="selectTwoContainer">
+                <h3>Tipo de Produto:</h3>
+                <div class="selectTwo">
+                    <span>Pokémon</span>
+                    <span>Item</span>
+                </div>
+            </div>
+            <!-- Selector (Radio) Exemplo - Need Finish
+                <div class="inputRadioContainer">
+                    <h3>Selecione o tipo de produto</h3> 
+                    <div class="inputs">
+                        <label for="pokemon">Pokémon</label>
+                        <input type="radio" name="product" id="pokemon">
+                        <label for="item">Item</label>
+                        <input type="radio" name="product" id="item">
+                    </div>
+                </div>
+            -->
+    
+            <!-- Selector (List) Example 
+                <div id="productType" class="select">
+                    <div class="container">
+                        <span class="title">Tipo de Produto:</span>
+                        <span class="selected">---</span>
+                    </div>
+                    <ul id="" class="selector">
+                        <li>Pokémon</li>
+                        <li>Item</li>
+                    </ul>
+                </div>
+            -->
+    
+            <!--
+                <input type="submit" value="Enviar">
+            -->
+        </form>
+        <div id="productPreview">
+            <div id="product"> 
+                <div class="top"></div>
+                <div class="bottom"></div>
+            </div>
+        </div>
+    </main>
+</body>
+</html>

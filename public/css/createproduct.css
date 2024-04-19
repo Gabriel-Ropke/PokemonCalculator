@@ -1,0 +1,230 @@
+@font-face {
+  font-family: "pokemon-solid";
+  src: url("../../fonts/pokemon/Pokemon Solid.ttf");
+}
+@font-face {
+  font-family: "pokemon-hollow";
+  src: url("../../fonts/pokemon/Pokemon Hollow.ttf");
+}
+@font-face {
+  font-family: "press-start-2p";
+  src: url("../../fonts/Press_Start_2P/PressStart2P-Regular.ttf");
+}
+@font-face {
+  font-family: "permanent-marker";
+  src: url("../../fonts/Permanent_Marker/PermanentMarker-Regular.ttf");
+}
+body {
+  background: rgb(60, 60, 60);
+  height: 100vh;
+}
+
+h1 {
+  width: 100%;
+  text-align: center;
+  font-size: 24px;
+  font-weight: 500;
+  padding: 10px;
+  margin-bottom: 10px;
+}
+
+a#return {
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding: 20px;
+  color: white;
+}
+
+main {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 60px;
+}
+main form {
+  display: flex;
+  flex-flow: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  width: calc(100% - 500px);
+  height: 500px;
+  margin: 0 20px;
+  padding: 20px;
+  border-radius: 10px;
+  background: rgb(112, 112, 112);
+}
+main form div.select {
+  position: relative;
+  display: flex;
+  display: none;
+  width: 200px;
+  margin: 10px;
+}
+main form div.select div.container {
+  width: 100%;
+  background: green;
+  padding: 10px;
+  border-radius: 5px;
+  color: rgb(240, 230, 230);
+  -webkit-user-select: none;
+     -moz-user-select: none;
+          user-select: none;
+  cursor: pointer;
+}
+main form div.select ul.selector {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+}
+main form div.select ul.selector li {
+  padding: 10px 0;
+  text-align: center;
+}
+main form div.inputRadioContainer {
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  justify-content: center;
+}
+main form div.inputRadioContainer div.inputs {
+  display: flex;
+  flex-flow: column;
+}
+main form div.selectTwoContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+}
+main form div.selectTwoContainer h3 {
+  color: rgb(240, 230, 230);
+  font-weight: 500;
+  letter-spacing: 1px;
+}
+main form div.selectTwoContainer div.selectTwo {
+  display: flex;
+  width: 250px;
+  border: 2px solid rgb(240, 230, 230);
+  border-radius: 10px;
+  overflow: hidden;
+}
+main form div.selectTwoContainer div.selectTwo span {
+  padding: 10px 5px;
+  width: 50%;
+  text-align: center;
+  cursor: pointer;
+  letter-spacing: 1px;
+  transition: 0.2s ease;
+}
+main form div.selectTwoContainer div.selectTwo span:hover {
+  background: rgba(255, 255, 255, 0.5);
+}
+main form div.selectTwoContainer div.selectTwo span.selected {
+  background: rgba(255, 255, 255, 0.8);
+}
+main form div.selectTwoContainer div.selectTwo span:first-child {
+  border-right: 4px solid rgb(240, 230, 230);
+}
+main div#productPreview {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgb(112, 112, 112);
+  width: 300px;
+  height: 300px;
+  border-radius: 5px;
+}
+main div#productPreview div#product {
+  position: relative;
+  width: 220px;
+  height: 250px;
+  border-radius: 20px;
+  background: rgb(60, 60, 60);
+  color: rgb(240, 230, 230);
+  cursor: pointer;
+}
+main div#productPreview div#product div.top {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  padding: 10px 15px;
+}
+main div#productPreview div#product.item {
+  height: 220px;
+}
+main div#productPreview div#product.item div.bottom {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  padding: 10px;
+  overflow: hidden;
+  width: 100%;
+}
+main div#productPreview div#product.item div.bottom p {
+  height: 50px;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+main div#productPreview div#product.item div.itemContainer {
+  position: absolute;
+  top: 50px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+main div#productPreview div#product.item div.itemContainer img {
+  max-height: 90px;
+}
+main div#productPreview div#product.pokemon div.pokemonContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  top: 40px;
+  left: 0;
+  flex-wrap: wrap;
+  gap: 10px;
+  width: 100%;
+  padding: 0 5px;
+}
+main div#productPreview div#product.pokemon div.pokemonContainer img {
+  max-height: 90px;
+}
+main div#productPreview div#product.pokemon div.pokemonContainer div.types {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2px;
+  width: 100%;
+}
+main div#productPreview div#product.pokemon div.pokemonContainer div.types span {
+  width: 50%;
+  text-align: center;
+  padding: 5px;
+  border-radius: 5px;
+  text-transform: capitalize;
+}
+main div#productPreview div#product.pokemon div.bottom {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  padding: 10px 0;
+  flex-wrap: wrap;
+  gap: 10px;
+  width: 100%;
+}
+main div#productPreview div#product.pokemon div.bottom ul.ivs {
+  display: flex;
+  flex-wrap: wrap;
+}
+main div#productPreview div#product.pokemon div.bottom ul.ivs li {
+  width: 33.3333333333%;
+  text-align: center;
+}/*# sourceMappingURL=createproduct.css.map */
