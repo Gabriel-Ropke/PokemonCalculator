@@ -64,83 +64,29 @@ export function initResult({ natureSelected, ivs }) {
     
         return rankedStats;
     }   
-    
+
+    const stats = getRankedStats(status);
     // Get Nature Result
     function getNatureResult(nature) {
-        const NatureCategoryArray = {pessima: "Péssima", ruim: "Ruim", mediana: "Mediana", neutra: "Neutra", otima: "Ótima", perfeita: "Perfeita"}
-        
-        let result = 0;
-        let resultMessage = "";
-
-        const stats = getRankedStats(status);
+        const NatureCategoryArray = {0: "Neutra", 2.5: "Ruim", 5: "Mediana", 7.5: "Ótima",10: "Perfeita"}
 
         const natureIncrease = nature.increase;
         const natureDecrease = nature.decrease;
 
         var statIncreasedIndex, statDecreasedIndex;
         console.log(stats)
-        stats[natureIncrease] ? statIncreasedIndex = stats[natureIncrease].index : statIncreasedIndex = 4
-        stats[natureDecrease] ? statDecreasedIndex = stats[natureDecrease].index : statDecreasedIndex = 0
+        stats[natureIncrease].index <= 4 ? statIncreasedIndex = stats[natureIncrease].index : statIncreasedIndex = 4
+        stats[natureDecrease].index <= 4 ? statDecreasedIndex = stats[natureDecrease].index : statDecreasedIndex = 4
 
         // Get note for Increase Stat
-        switch (statIncreasedIndex) {
-            case 0:
-                result = 10;
-                break;
-            case 1:
-                result = 7.5;
-                break;
-            case 2:
-                result = 5;
-                break;
-            case 3:
-                result = 2.5;
-                break;
-            default:
-                result = 0;
-        }
-        
-        // Get note for Decrease Stat
-        switch (statDecreasedIndex) {
-            case 0:
-                result -= 10;
-                break;
-            case 1:
-                result -= 7.5;
-                break;
-            case 2:
-                result -= 5;
-                break;
-            case 3: 
-                result -= 2.5;
-                break;
-            default:
-                result -= 0
-        }
+        const increased = (10 - statIncreasedIndex * 2.5) 
+        const decreased = (- 10 + statDecreasedIndex * 2.5)
+        const note = increased - decreased;
+        const resultMessage = NatureCategoryArray[note]
 
-        // Get Result Message from Result
-        switch (result) {
-            case 10:
-                resultMessage = NatureCategoryArray["perfeita"];
-                break;
-            case 7.5:
-                resultMessage = NatureCategoryArray["otima"];
-                break;
-            case 5:
-                resultMessage = NatureCategoryArray["mediana"];
-                break;
-            case 2.5:
-                resultMessage = NatureCategoryArray["ruim"];
-                break;
-            case 0:
-                resultMessage = NatureCategoryArray["neutra"];
-                break;
-            default:
-                resultMessage = NatureCategoryArray["pessima"];
-        }
-        console.log(`Nota final é: ${result}`)
+        console.log(`Nota final é: ${note}`)
         console.log("A Nature é ", resultMessage)
-        return {note: result, message: resultMessage}
+        return {note: note, message: resultMessage}
     }
     
     // Fix only one decimal number
@@ -153,12 +99,18 @@ export function initResult({ natureSelected, ivs }) {
     // Get IV Nature
     function getIvNote() {
         let sum = 0;
-        for (let i = 0; i < Object.keys(ivs).length; i++) {
+        const a = [];
+        for (let i = 0; i < 6; i++) {
+            const statusIndex = stats[Object.keys(stats)[i]].index
+            const invertIndex = (statusIndex - 6) * -1
             const ivValue = parseInt(ivs[Object.keys(ivs)[i]])
-            sum += ivValue
+            const calc = invertIndex * ivValue
+            console.log(calc)
+            a.push(calc)
+            sum += calc
         }
-        const resultNote = fixedOne(sum / 186 * 10)
-        return resultNote
+        console.log(a)
+        return fixedOne(sum / 651 * 10);
     }
 
     // ------ HTML Renderize Page with Actual Information and Formulas

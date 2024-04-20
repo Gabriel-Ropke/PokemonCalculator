@@ -28,7 +28,7 @@ body {
   min-height: 100vh;
   overflow-y: scroll;
   overflow-x: hidden;
-  background: rgb(60, 60, 60);
+  background: rgb(10, 29, 52);
   padding-bottom: 40px;
 }
 
@@ -92,7 +92,7 @@ main section#pokemonSection h1 {
 main section#pokemonSection ul#pokemonList {
   width: 90%;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(80px, auto));
+  grid-template-columns: repeat(auto-fit, minmax(100px, auto));
   border-collapse: collapse;
 }
 main section#pokemonSection ul#pokemonList li {
@@ -100,14 +100,14 @@ main section#pokemonSection ul#pokemonList li {
   align-items: center;
   justify-content: center;
   width: 100%;
-  height: 80px;
+  height: 100px;
   background: white;
   border: 3px solid black;
   cursor: pointer;
 }
 main section#pokemonSection ul#pokemonList li img {
-  max-width: 65px;
-  max-height: 65px;
+  max-width: 85px;
+  max-height: 85px;
   width: 100%;
   height: 100%;
 }
@@ -219,7 +219,7 @@ main section#informationSection div#informationContent div#naturesContainer ul#n
   width: 90%;
   border: 2px solid black;
   border-radius: 5px;
-  background: rgb(60, 60, 60);
+  background: rgb(10, 29, 52);
   overflow: hidden;
 }
 main section#informationSection div#informationContent div#naturesContainer ul#naturesList li {
@@ -343,7 +343,7 @@ main section#informationSection button#buttonCheck {
   cursor: pointer;
 }
 main section#informationSection button#buttonCheck:hover {
-  color: rgb(60, 60, 60);
+  color: rgb(10, 29, 52);
   background: rgb(240, 230, 230);
 }
 main section#informationSection button#buttonCheck:disabled {
@@ -447,7 +447,7 @@ main section#resultSection div#avaliation div#pokemonNatureAvaliation {
   text-transform: uppercase;
   color: white;
   border: 3px solid rgb(127, 127, 127);
-  background-color: rgb(60, 60, 60);
+  background-color: rgb(10, 29, 52);
   cursor: pointer;
   transition: 0.2s ease;
 }
@@ -484,7 +484,7 @@ main section#resultSection div#avaliation div#pokemonIvAvaliation {
   align-items: center;
   justify-content: center;
   padding: 5px;
-  background: rgb(60, 60, 60);
+  background: rgb(10, 29, 52);
   width: calc(100% - 350px);
   border: 3px solid rgb(127, 127, 127);
   border-radius: 5px;

@@ -211,14 +211,13 @@ function getNextIndex(direction) {
         default:
             nextIndex = selectedCharacterIndex;
     }
-
     // Verifica se o próximo índice está dentro dos limites do array de personagens
-    if (nextIndex >= 0 && nextIndex < NumberOfPokemon) {
+    if (nextIndex >= 0 && nextIndex <= NumberOfPokemon) {
         selectedCharacterIndex = nextIndex; // Atualiza apenas se o próximo índice for válido
     }
     selectedPokemon = selectedCharacterIndex + 1;
     return selectedCharacterIndex;
-}   
+} 
 function SwitchPagePokemonSelectToCalculator() {
     const main = document.querySelector("main")
     const pokemonSection = main.querySelector("section#pokemonSection")
