@@ -54,6 +54,15 @@ img {
           user-select: none;
 }
 
+div#transitionScreen {
+  position: absolute;
+  background: linear-gradient(90deg, rgb(10, 29, 52) 0%, rgb(16, 57, 108) 50%, rgb(23, 76, 141) 100%);
+  z-index: 1000;
+}
+div#transitionScreen.transition {
+  animation: transitionTrue 1.4s;
+}
+
 main {
   position: relative;
   display: flex;
@@ -62,18 +71,6 @@ main {
   width: 100%;
   height: auto;
   transition: 1s;
-}
-main div#transitionScreen {
-  position: fixed;
-  width: 100vw;
-  height: 100vh;
-  top: 0;
-  left: 100vw;
-  background: linear-gradient(90deg, rgb(71, 71, 71) 0%, rgb(64, 64, 64) 50%, rgb(57, 57, 57) 100%);
-  z-index: 1000;
-}
-main div#transitionScreen.transition {
-  animation: transitionTrue 2s;
 }
 main section#pokemonSection {
   position: relative;
@@ -185,169 +182,6 @@ main section#pokemonSection span#spanSelect {
   animation: pisca 1s infinite;
   transform: translateX(-50%);
   z-index: 1000;
-}
-main section#informationSection {
-  display: flex;
-  width: 100vw;
-  min-height: 100vh;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-between;
-  padding-bottom: 20px;
-}
-main section#informationSection div#informationContent {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: calc(100% - 10px);
-  margin-bottom: 20px;
-  background: rgb(112, 112, 112);
-  border-radius: 10px;
-}
-main section#informationSection div#informationContent div#naturesContainer {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-flow: column;
-  width: 90%;
-  padding-bottom: 20px;
-  border-radius: 5px;
-}
-main section#informationSection div#informationContent div#naturesContainer ul#naturesList {
-  display: flex;
-  flex-wrap: wrap;
-  width: 90%;
-  border: 2px solid black;
-  border-radius: 5px;
-  background: rgb(10, 29, 52);
-  overflow: hidden;
-}
-main section#informationSection div#informationContent div#naturesContainer ul#naturesList li {
-  text-align: center;
-  width: 20%;
-  padding: 10px 0;
-  font-weight: 500;
-  font-size: 18px;
-  background: yellowgreen;
-  border: 1px solid black;
-  cursor: pointer;
-  -webkit-user-select: none;
-     -moz-user-select: none;
-          user-select: none;
-  transition: 0.3s ease;
-}
-main section#informationSection div#informationContent div#naturesContainer ul#naturesList li:hover {
-  filter: brightness(1.2);
-}
-main section#informationSection div#informationContent div#naturesContainer ul#naturesList li.no-selected {
-  filter: brightness(0.5);
-}
-main section#informationSection div#informationContent div#naturesContainer ul#naturesList li.no-selected:hover {
-  filter: brightness(0.5);
-}
-main section#informationSection div#informationContent div#naturesContainer ul#naturesList li.selected {
-  filter: brightness(1.2);
-}
-main section#informationSection div#informationContent div#ivsContainer {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-flow: column;
-}
-main section#informationSection div#informationContent div#ivsContainer div#inputsContainer {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 20px;
-  padding: 0 0 20px 0;
-  flex-wrap: wrap;
-  width: 100%;
-}
-main section#informationSection div#informationContent div#ivsContainer div#inputsContainer input[type=range] {
-  -webkit-appearance: none;
-  -moz-appearance: none;
-       appearance: none;
-  position: relative;
-  outline: none;
-  width: 50%;
-  height: 20px;
-  border-radius: 5px;
-  background: rgb(240, 230, 230);
-  border: 2px solid rgb(100, 100, 100);
-  border-radius: 5px;
-  cursor: context-menu;
-}
-main section#informationSection div#informationContent div#ivsContainer div#inputsContainer input[type=range]:hover::-webkit-slider-thumb {
-  scale: 1.2;
-}
-main section#informationSection div#informationContent div#ivsContainer div#inputsContainer input[type=range]:hover::-moz-range-thumb {
-  scale: 1.2;
-}
-main section#informationSection div#informationContent div#ivsContainer div#inputsContainer input[type=range]::-moz-range-thumb {
-  height: 15px;
-  width: 30px;
-  background: rgb(100, 100, 100);
-  border: 1px solid #ddd;
-  -moz-transition: 0.2s ease;
-  transition: 0.2s ease;
-}
-main section#informationSection div#informationContent div#ivsContainer div#inputsContainer input[type=range]::-webkit-slider-thumb {
-  -webkit-appearance: none;
-  appearance: none;
-  height: 15px;
-  width: 30px;
-  background: rgb(100, 100, 100);
-  border: 1px solid #ddd;
-  -webkit-transition: 0.2s ease;
-  transition: 0.2s ease;
-}
-main section#informationSection div#informationContent div#ivsContainer div#inputsContainer input[type=range]::after {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  content: attr(name);
-  position: absolute;
-  top: 50%;
-  right: 100%;
-  transform: translate(-50%, -50%);
-  width: 50px;
-  color: white;
-  font-size: 20px;
-  font-weight: 600;
-}
-main section#informationSection div#informationContent div#ivsContainer div#inputsContainer input[type=range]::before {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  content: attr(data-value);
-  position: absolute;
-  top: 50%;
-  left: 100%;
-  transform: translate(50%, -50%);
-  width: 50px;
-  color: white;
-  font-size: 20px;
-  font-weight: 600;
-}
-main section#informationSection button#buttonCheck {
-  margin: 0 auto;
-  padding: 10px 20px;
-  border-radius: 10px;
-  background: none;
-  color: rgb(240, 230, 230);
-  border: 2px solid rgb(240, 230, 230);
-  transition: 0.3s ease;
-  font-weight: 600;
-  font-size: 20px;
-  letter-spacing: 1px;
-  cursor: pointer;
-}
-main section#informationSection button#buttonCheck:hover {
-  color: rgb(10, 29, 52);
-  background: rgb(240, 230, 230);
-}
-main section#informationSection button#buttonCheck:disabled {
-  opacity: 0.5;
 }
 main section#resultSection {
   width: 100%;
@@ -632,13 +466,17 @@ main section#resultSection div#postMarketplace button {
 
 @keyframes transitionTrue {
   0% {
-    left: 100%;
+    border-radius: 100% 50% 0 50%;
+    width: 0;
+    height: 0;
   }
   50% {
-    left: 0;
+    width: 110%;
+    height: 110%;
   }
   100% {
-    left: -100%;
+    width: 0;
+    height: 0;
   }
 }
 @keyframes pisca {

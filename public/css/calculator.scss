@@ -16,11 +16,6 @@ body {
     background: $body_background;
     padding-bottom: 40px;
 }
-@mixin flexCenter() {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
 .hidden {
     display: none !important;
 }
@@ -42,6 +37,14 @@ h2, h1 {
 img {
     user-select: none;
 }
+div#transitionScreen {
+    position: absolute;
+    background: linear-gradient(90deg, rgb(10, 29, 52) 0%, rgb(16, 57, 108) 50%, rgb(23, 76, 141) 100%);
+    z-index: 1000;
+    &.transition {
+        animation: transitionTrue 1.4s;
+    }
+}
 main {
     position: relative;
     display: flex; 
@@ -50,18 +53,6 @@ main {
     width: 100%;
     height: auto;
     transition: 1s;
-    div#transitionScreen {
-        position: fixed;
-        width: 100vw;
-        height: 100vh;
-        top: 0;
-        left: 100vw;
-        background: linear-gradient(90deg, rgb(71,71,71) 0%, rgb(64, 64, 64) 50%, rgb(57, 57, 57) 100%);
-        z-index: 1000;
-        &.transition {
-            animation: transitionTrue 2s;
-        }
-    }
     section#pokemonSection {
         position: relative;
         width: 100vw;
@@ -170,156 +161,6 @@ main {
             animation: pisca 1s infinite;
             transform: translateX(-50%);
             z-index: 1000;
-        }
-    }
-    section#informationSection {
-        display: flex;
-        width: 100vw;
-        min-height: 100vh;
-        flex-direction: column;
-        align-items: center;
-        justify-content: space-between;
-        padding-bottom: 20px;
-        
-        div#informationContent {
-            @include flexCenter();
-            width: calc(100% - 10px);
-            margin-bottom: 20px;
-            background: $items_background;
-            border-radius: 10px;
-            div#naturesContainer {
-                @include flexCenter();
-                flex-flow: column;
-                width: 90%;
-                padding-bottom: 20px;
-                border-radius: 5px;
-                ul#naturesList {
-                    display: flex;
-                    flex-wrap: wrap;
-                    width: 90%;
-                    border: 2px solid black;
-                    border-radius: 5px;
-                    background: $body_background;
-                    overflow: hidden;
-                    li {
-                        text-align: center;
-                        width: 20%;
-                        padding: 10px 0;
-                        font-weight: 500;
-                        font-size: 18px;
-                        background: yellowgreen;
-                        border: 1px solid black;
-                        cursor: pointer;
-                        user-select: none;
-                        transition: 0.3s ease;
-                        &:hover {
-                            filter: brightness(1.2);
-                        }
-                        &.no-selected {
-                            filter: brightness(0.5);
-                            &:hover {
-                                filter: brightness(0.5);
-                            }
-                        }
-                        &.selected {
-                            filter: brightness(1.2);
-                        }
-                    }
-                }
-            }
-            div#ivsContainer {
-                @include flexCenter();
-                flex-flow: column;
-                div#inputsContainer {
-                    @include flexCenter();
-                    gap: 20px;
-                    padding: 0 0 20px 0;
-                    flex-wrap: wrap;
-                    width: 100%;
-                    input[type="range"] {
-                        -webkit-appearance: none;
-                        appearance: none;
-                        position: relative;
-                        outline: none;
-                        width: 50%;
-                        height: 20px;
-                        border-radius: 5px;
-                        background: $title_color;
-                        border: 2px solid rgb(100, 100, 100);
-                        border-radius: 5px;
-                        cursor: context-menu;
-                        &:hover {
-                            &::-webkit-slider-thumb {
-                                scale: 1.2;
-                            }
-                            &::-moz-range-thumb {
-                                scale: 1.2;
-                            }
-                        }
-                        &::-moz-range-thumb {
-                          height: 15px;
-                          width: 30px;
-                          background: rgb(100, 100, 100);
-                          border: 1px solid #ddd;
-                          transition: 0.2s ease;
-                        }
-                      
-                        &::-webkit-slider-thumb {
-                          -webkit-appearance: none;
-                          appearance: none;
-                          height: 15px;
-                          width: 30px;
-                          background: rgb(100, 100, 100);
-                          border: 1px solid #ddd;
-                          transition: 0.2s ease;
-                        }
-                        &::after {
-                            @include flexCenter();
-                            content: attr(name);
-                            position: absolute;
-                            top: 50%;
-                            right: 100%;
-                            transform: translate(-50%, -50%);
-                            width: 50px;
-                            color: white;
-                            font-size: 20px;
-                            font-weight: 600;
-                        }
-                        &::before {
-                            @include flexCenter();
-                            content: attr(data-value);
-                            position: absolute;
-                            top: 50%;
-                            left: 100%;
-                            transform: translate(50%, -50%);
-                            width: 50px;
-                            color: white;
-                            font-size: 20px;
-                            font-weight: 600;
-                        }
-                      }
-                }
-            }              
-        }
-        button#buttonCheck {
-            margin: 0 auto;
-            padding: 10px 20px;
-            border-radius: 10px;
-            background: none;
-            color: $title_color;
-            border: 2px solid $title_color;
-            transition: 0.3s ease;
-            font-weight: 600;
-            font-size: 20px;
-            letter-spacing: 1px;
-            cursor: pointer;
-            &:hover {
-                color: $body_background;
-                background: $title_color;
-            }
-            &:disabled {
-                opacity: 0.5;
-            }
         }
     }
     section#resultSection {
@@ -581,13 +422,17 @@ main {
 }
 @keyframes transitionTrue {
     0% {
-        left: 100%;
+        border-radius: 100% 50% 0 50%;
+        width: 0;
+        height: 0;
     }
     50% {
-        left: 0;
+        width: 110%;
+        height: 110%;
     }
     100% {
-        left: -100%;
+        width: 0;
+        height: 0;
     }
 }
 @keyframes pisca {

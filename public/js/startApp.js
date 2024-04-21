@@ -221,7 +221,7 @@ function getNextIndex(direction) {
 function SwitchPagePokemonSelectToCalculator() {
     const main = document.querySelector("main")
     const pokemonSection = main.querySelector("section#pokemonSection")
-    const informationSection = main.querySelector("section#informationSection")
+    const informationSection = main.querySelector("section#avaliationSection")
     console.log(pokemonSection)
     SwitchPage({ fromPage: pokemonSection, toPage: informationSection});
     cleanKeyFunctions();

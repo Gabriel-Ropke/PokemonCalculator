@@ -3,19 +3,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="public/css/calculator.css">
+    <link rel="stylesheet" href="public/css/avaliation.css">
     <script type="module" defer src="public/js/start.js"></script>
     <script type="module" defer src="public/js/informations.js"></script>
     <script type="module" defer src="public/js/result.js"></script>
     <title>Calculator</title>
 </head>
 <body>
+    <div id="transitionScreen"></div>
     <main>
         <section id="pokemonSection">
             <h1>Select Your Pokémon</h1>
             <ul id="pokemonList">
                 
             </ul>
+            
             <div id="selectedPokemon">
                 <div id="selectedPokemonBackground"></div>
                 <img src="public/img/charizard.png" alt="" id="pokemon">
@@ -33,7 +37,35 @@
             </div>
             <span id="spanSelect">Press Enter to Select Your Pokémon</span>
         </section>
-        <div id="transitionScreen"></div>
+        <section id="avaliationSection" class="hidden">
+            <div id="pokemon">
+                <h2>Selecione os dados do seu Pokémon</h2>
+                <img class="top-light" src="public/img/top_light_avaliation.png" alt="">
+                <img class="pokemon" src="public/img/charizard.png" alt="">
+                <img class="bg-grass" src="public/img/background_grass_avaliation.png" alt="">
+            </div>
+            <div id="natureListContainer">
+                <ul class="list-header">
+                    <li><i class="fa-solid fa-arrow-up"></i>attack</li>
+                    <li><i class="fa-solid fa-arrow-up"></i>defense</li>
+                    <li><i class="fa-solid fa-arrow-up"></i>sp. Attack</li>
+                    <li><i class="fa-solid fa-arrow-up"></i>sp. Defense</li>
+                    <li><i class="fa-solid fa-arrow-up"></i>speed</li>
+                </ul>
+                <menu class="nature-list">
+                    <ul>
+                    </ul>
+                </menu>
+                <ul class="list-aside">
+                    <li><i class="fa-solid fa-arrow-down"></i>attack</li>
+                    <li><i class="fa-solid fa-arrow-down"></i>defense</li>
+                    <li><i class="fa-solid fa-arrow-down"></i>sp. Attack</li>
+                    <li><i class="fa-solid fa-arrow-down"></i>sp. Defense</li>
+                    <li><i class="fa-solid fa-arrow-down"></i>speed</li>
+                </ul>
+            </div>
+        </section>
+        <!--
         <section id="informationSection" class="hidden">
             <h1>Adicione os Dados de seu Pokémon</h1>
             <div id="informationContent">
@@ -57,6 +89,7 @@
             </div>
             <button id="buttonCheck" disabled>Check Your Pokémon!</button>
         </section>
+        -->
         <section id="resultSection" class="hidden">
             <h1>Avaliação do seu Pokémon</h1>
             <div id="top">

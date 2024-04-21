@@ -20,3 +20,8 @@ $bug: red;
     font-family: "permanent-marker";
     src: url("../../fonts/Permanent_Marker/PermanentMarker-Regular.ttf");
 }
+@mixin flexCenter() {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

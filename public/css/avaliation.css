@@ -1,0 +1,167 @@
+@font-face {
+  font-family: "pokemon-solid";
+  src: url("../../fonts/pokemon/Pokemon Solid.ttf");
+}
+@font-face {
+  font-family: "pokemon-hollow";
+  src: url("../../fonts/pokemon/Pokemon Hollow.ttf");
+}
+@font-face {
+  font-family: "press-start-2p";
+  src: url("../../fonts/Press_Start_2P/PressStart2P-Regular.ttf");
+}
+@font-face {
+  font-family: "permanent-marker";
+  src: url("../../fonts/Permanent_Marker/PermanentMarker-Regular.ttf");
+}
+section#avaliationSection {
+  display: flex;
+  flex-flow: column;
+  gap: 20px;
+  width: 100%;
+  min-height: 100vh;
+}
+section#avaliationSection div#pokemon {
+  position: relative;
+  width: 100%;
+  height: 400px;
+}
+section#avaliationSection div#pokemon img, section#avaliationSection div#pokemon h2 {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+section#avaliationSection div#pokemon h2 {
+  font-size: 30px;
+  color: #AFAFAF;
+}
+section#avaliationSection div#pokemon img.top-light {
+  top: 0;
+  height: 100%;
+  width: 500px;
+  animation: turnOnLights 1s;
+}
+section#avaliationSection div#pokemon img.pokemon {
+  bottom: 60px;
+  width: 200px;
+  z-index: 1;
+  animation: showPokemon 1s;
+}
+section#avaliationSection div#pokemon img.bg-grass {
+  width: 350px;
+  bottom: 0;
+  animation: showPokemon 1s;
+}
+section#avaliationSection div#natureListContainer {
+  display: grid;
+  grid-template-columns: 16% 84%;
+  grid-template-rows: 16% 84%;
+  grid-template-areas: ". header" "aside list";
+  padding: 20px;
+  gap: 5px;
+  flex-flow: column;
+  width: 100%;
+}
+section#avaliationSection div#natureListContainer ul.list-header,
+section#avaliationSection div#natureListContainer ul.list-aside {
+  grid-area: header;
+  display: flex;
+  gap: 5px;
+}
+section#avaliationSection div#natureListContainer ul.list-header li,
+section#avaliationSection div#natureListContainer ul.list-aside li {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  width: 20%;
+  text-align: center;
+  background: #2c2c2c;
+  height: 55px;
+  color: rgb(240, 230, 230);
+  font-size: 16px;
+  text-transform: capitalize;
+}
+section#avaliationSection div#natureListContainer ul.list-header li i,
+section#avaliationSection div#natureListContainer ul.list-aside li i {
+  position: absolute;
+  top: 50%;
+  left: 10px;
+  transform: translateY(-50%);
+  color: rgb(240, 230, 230);
+}
+section#avaliationSection div#natureListContainer menu.nature-list {
+  grid-area: list;
+}
+section#avaliationSection div#natureListContainer menu.nature-list ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+}
+section#avaliationSection div#natureListContainer menu.nature-list ul li {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-basis: calc(20% - 4px);
+  height: 55px;
+  background: black;
+  text-align: center;
+  color: white;
+  font-size: 20px;
+  cursor: pointer;
+  text-transform: capitalize;
+  letter-spacing: 1px;
+  transition: 0.5s ease;
+}
+section#avaliationSection div#natureListContainer menu.nature-list ul li:hover {
+  filter: brightness(0.8);
+}
+section#avaliationSection div#natureListContainer menu.nature-list ul li.atk {
+  background: #df3c3a;
+}
+section#avaliationSection div#natureListContainer menu.nature-list ul li.def {
+  background: #efa425;
+}
+section#avaliationSection div#natureListContainer menu.nature-list ul li.spatk {
+  background: #e83fa7;
+}
+section#avaliationSection div#natureListContainer menu.nature-list ul li.spdef {
+  background: #e1d441;
+}
+section#avaliationSection div#natureListContainer menu.nature-list ul li.speed {
+  background: #29b5e1;
+}
+section#avaliationSection div#natureListContainer menu.nature-list ul li.no-selected {
+  filter: brightness(0.5) !important;
+}
+section#avaliationSection div#natureListContainer menu.nature-list ul li.selected {
+  filter: brightness(1) !important;
+}
+section#avaliationSection div#natureListContainer ul.list-aside {
+  grid-area: aside;
+  flex-flow: column;
+}
+section#avaliationSection div#natureListContainer ul.list-aside li {
+  width: 100%;
+}
+
+@keyframes turnOnLights {
+  0% {
+    top: -350px;
+    opacity: 0;
+  }
+  100% {
+    top: 0;
+    opacity: 1;
+  }
+}
+@keyframes showPokemon {
+  0% {
+    left: 25%;
+    opacity: 0;
+  }
+  100% {
+    left: 50%;
+    opacity: 1;
+  }
+}/*# sourceMappingURL=avaliation.css.map */

@@ -1,46 +1,57 @@
 import { SwitchPage } from "./generalFunctions.js";
-import { Natures, statColor } from "./minidb.js";
+import { Natures } from "./minidb.js";
 import { allPokemon } from "./pokemonFetch.js";
 import { initResult } from "./result.js";
 
 export function initInformations() {
-    const informationSection = document.querySelector("section#informationSection")
-    const resultSection = document.querySelector("section#resultSection")
-    const buttonCheck = document.querySelector("button#buttonCheck");
-    const naturesContainer = document.querySelector("div#naturesContainer")
-    const naturesList = naturesContainer.querySelector("ul")
+    // ---- Initial Page Queries
+    const avaliationSection = document.querySelector("section#avaliationSection")
+    
+    // Pokémon Queries
+    const pokemonContainer = avaliationSection.querySelector("div#pokemon")
+    const pokemonImage = pokemonContainer.querySelector("img.pokemon")
+
+    // Nature Queries
+    const natureListContainer = avaliationSection.querySelector("div#natureListContainer")
+    const natureList = natureListContainer.querySelector("menu.nature-list ul")
+
     let natureSelected = "";
+
+    // ---- Getting Selected Pokémon
+    const selectedPokemonID = localStorage.getItem("pokemonDex")
+    const selectedPokemon = allPokemon[selectedPokemonID]
+    console.log(selectedPokemon)
+
+    // add Pokémon Image
+    pokemonImage.src = selectedPokemon["sprites"]["versions"]['generation-v']['black-white']['animated'].front_default;
+
+    // Create and add Interactive Functions to Nature List
     for (let i = 0; i < Object.keys(Natures).length; i++) {
         const name = Object.keys(Natures)[i]
         const statModified = Natures[name]
         const liNature = document.createElement("li");
         liNature.innerText = name;
         liNature.dataset.value = name;
-        liNature.style.background = statColor[statModified.increase]
-        naturesList.appendChild(liNature)
+        console.log(statModified)
+        liNature.classList.add(statModified.increase)
+        natureList.appendChild(liNature)
         liNature.addEventListener("click", () => {
-            const alreadyHaveSelected = naturesList.querySelector("li.selected")
-            const allLi = naturesList.querySelectorAll("li");
+            const alreadyHaveSelected = natureList.querySelector("li.selected")
+            const allLi = natureList.querySelectorAll("li");
             if(alreadyHaveSelected) {
-                for (let i = 0; i < allLi.length; i++) {
-                    const li = allLi[i];
-                    li.classList.remove("selected")
-                    li.classList.remove("no-selected");
-                }
-                natureSelected = "";
-                buttonCheck.disabled = true
+                return
             } else {
                 for (let i = 0; i < allLi.length; i++) {
                     const li = allLi[i];
                     li.classList.add("no-selected");
                 }
-                buttonCheck.disabled = false
                 natureSelected = liNature.dataset.value;
                 liNature.classList.remove("no-selected")
                 liNature.classList.add("selected");
             }
         })   
     }
+    /*
     const allIvInputs = document.querySelectorAll("div#ivsContainer div#inputsContainer input[type='range']")
     for (let i = 0; i < allIvInputs.length; i++) {
         const input = allIvInputs[i]
@@ -48,23 +59,5 @@ export function initInformations() {
             input.dataset.value = input.value;
         }
     }
-    buttonCheck.addEventListener("click", () => {
-        const selectedPokemonID = localStorage.getItem("pokemonDex")
-        const selectedPokemon = allPokemon[selectedPokemonID]
-        const ivs = {
-            ivHp: allIvInputs[0].value,
-            ivSpAtk: allIvInputs[3].value,
-            ivAtk: allIvInputs[1].value,
-            ivDef: allIvInputs[2].value,
-            ivSpDef: allIvInputs[4].value,
-            ivSpeed: allIvInputs[5].value,
-        }
-        const name = selectedPokemon.name;
-        console.log(selectedPokemon)
-        console.log(`O Pokémon é: ${name}`)
-        console.log(`A Nature é ${natureSelected}`)
-        console.log(`Os IV são hp: ${ivs.ivHp}, atk: ${ivs.ivAtk}, def: ${ivs.ivDef}, sp.atk: ${ivs.ivSpAtk}, sp.def: ${ivs.ivSpDef}, speed: ${ivs.ivSpeed}`)
-        SwitchPage({fromPage: informationSection, toPage: resultSection})
-        initResult({ natureSelected, ivs });
-    })
+    */
 }
