@@ -68,21 +68,26 @@ export function initResult({ natureSelected, ivs }) {
     const stats = getRankedStats(status);
     // Get Nature Result
     function getNatureResult(nature) {
-        const NatureCategoryArray = {0: "Neutra", 2.5: "Ruim", 5: "Mediana", 7.5: "Ótima",10: "Perfeita"}
+        const NatureCategoryArray = {0: "Neutra", 2.5: "Ruim", 5: "Mediana", 7.5: "Ótima", 10: "Perfeita"}
 
         const natureIncrease = nature.increase;
         const natureDecrease = nature.decrease;
 
         var statIncreasedIndex, statDecreasedIndex;
         console.log(stats)
-        stats[natureIncrease].index <= 4 ? statIncreasedIndex = stats[natureIncrease].index : statIncreasedIndex = 4
-        stats[natureDecrease].index <= 4 ? statDecreasedIndex = stats[natureDecrease].index : statDecreasedIndex = 4
+        statIncreasedIndex = stats[natureIncrease].index
+        statDecreasedIndex = stats[natureDecrease].index
 
         // Get note for Increase Stat
         const increased = (10 - statIncreasedIndex * 2.5) 
-        const decreased = (- 10 + statDecreasedIndex * 2.5)
-        const note = increased - decreased;
-        const resultMessage = NatureCategoryArray[note]
+        const decreased = (-10 + statDecreasedIndex * 2.5)
+        console.log(increased, decreased)
+        console.log(statDecreasedIndex, statIncreasedIndex)
+        const note = increased + decreased;
+        var resultMessage = NatureCategoryArray[note]
+        if(!resultMessage) {
+            resultMessage = "Horrível"
+        }
 
         console.log(`Nota final é: ${note}`)
         console.log("A Nature é ", resultMessage)

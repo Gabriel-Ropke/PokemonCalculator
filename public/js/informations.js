@@ -39,7 +39,7 @@ export function initInformations() {
 
     // add Pokémon Image
     pokemonImage.src = selectedPokemon["sprites"]["versions"]['generation-v']['black-white']['animated'].front_default;
-
+    console.log(selectedPokemon)
     // Create and add Interactive Functions to Nature List
     for (let i = 0; i < Object.keys(Natures).length; i++) {
         const name = Object.keys(Natures)[i]
@@ -79,6 +79,7 @@ export function initInformations() {
             textInput.value = rangeInput.value
         }
     }
+    // Functionto get Ivs Value from range Input
     function getIvs() {
         const arr = []
         for (let i = 0; i < allRangeInput.length; i++) {

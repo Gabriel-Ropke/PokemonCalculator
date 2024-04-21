@@ -46,15 +46,7 @@ div#transitionScreen {
     background: linear-gradient(90deg, rgb(10, 29, 52) 0%, rgb(16, 57, 108) 50%, rgb(23, 76, 141) 100%);
     z-index: 1000;
     &.transition {
-        animation: transitionTrue 1.4s;
-    }
-}
-@keyframes transitionTrue {
-    0% {
-        left: 100%;
-    }
-    100% {
-        left: -120%;
+        animation: transitionTrue 1.8s;
     }
 }
 main {
@@ -430,6 +422,14 @@ main {
                 user-select: none;
             }
         }
+    }
+}
+@keyframes transitionTrue {
+    0% {
+        left: 100%;
+    }
+    100% {
+        left: -120%;
     }
 }
 @keyframes pisca {

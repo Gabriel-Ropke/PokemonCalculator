@@ -64,17 +64,9 @@ div#transitionScreen {
   z-index: 1000;
 }
 div#transitionScreen.transition {
-  animation: transitionTrue 1.4s;
+  animation: transitionTrue 1.8s;
 }
 
-@keyframes transitionTrue {
-  0% {
-    left: 100%;
-  }
-  100% {
-    left: -120%;
-  }
-}
 main {
   position: relative;
   display: flex;
@@ -476,6 +468,14 @@ main section#resultSection div#postMarketplace button {
           user-select: none;
 }
 
+@keyframes transitionTrue {
+  0% {
+    left: 100%;
+  }
+  100% {
+    left: -120%;
+  }
+}
 @keyframes pisca {
   0% {
     opacity: 1;
