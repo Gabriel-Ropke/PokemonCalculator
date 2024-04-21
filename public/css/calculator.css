@@ -55,7 +55,11 @@ img {
 }
 
 div#transitionScreen {
-  position: absolute;
+  position: fixed;
+  width: 100vw;
+  height: 200vh;
+  top: 0;
+  left: 100%;
   background: linear-gradient(90deg, rgb(10, 29, 52) 0%, rgb(16, 57, 108) 50%, rgb(23, 76, 141) 100%);
   z-index: 1000;
 }
@@ -63,6 +67,14 @@ div#transitionScreen.transition {
   animation: transitionTrue 1.4s;
 }
 
+@keyframes transitionTrue {
+  0% {
+    left: 100%;
+  }
+  100% {
+    left: -120%;
+  }
+}
 main {
   position: relative;
   display: flex;
@@ -464,21 +476,6 @@ main section#resultSection div#postMarketplace button {
           user-select: none;
 }
 
-@keyframes transitionTrue {
-  0% {
-    border-radius: 100% 50% 0 50%;
-    width: 0;
-    height: 0;
-  }
-  50% {
-    width: 110%;
-    height: 110%;
-  }
-  100% {
-    width: 0;
-    height: 0;
-  }
-}
 @keyframes pisca {
   0% {
     opacity: 1;

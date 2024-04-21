@@ -44,52 +44,75 @@
                 <img class="pokemon" src="public/img/charizard.png" alt="">
                 <img class="bg-grass" src="public/img/background_grass_avaliation.png" alt="">
             </div>
-            <div id="natureListContainer">
-                <ul class="list-header">
-                    <li><i class="fa-solid fa-arrow-up"></i>attack</li>
-                    <li><i class="fa-solid fa-arrow-up"></i>defense</li>
-                    <li><i class="fa-solid fa-arrow-up"></i>sp. Attack</li>
-                    <li><i class="fa-solid fa-arrow-up"></i>sp. Defense</li>
-                    <li><i class="fa-solid fa-arrow-up"></i>speed</li>
-                </ul>
-                <menu class="nature-list">
-                    <ul>
+            <section id="dataSection">
+                <div id="natureListContainer">
+                    <ul class="list-header">
+                        <li><i class="fa-solid fa-arrow-up"></i>attack</li>
+                        <li><i class="fa-solid fa-arrow-up"></i>defense</li>
+                        <li><i class="fa-solid fa-arrow-up"></i>sp. Attack</li>
+                        <li><i class="fa-solid fa-arrow-up"></i>sp. Defense</li>
+                        <li><i class="fa-solid fa-arrow-up"></i>speed</li>
                     </ul>
-                </menu>
-                <ul class="list-aside">
-                    <li><i class="fa-solid fa-arrow-down"></i>attack</li>
-                    <li><i class="fa-solid fa-arrow-down"></i>defense</li>
-                    <li><i class="fa-solid fa-arrow-down"></i>sp. Attack</li>
-                    <li><i class="fa-solid fa-arrow-down"></i>sp. Defense</li>
-                    <li><i class="fa-solid fa-arrow-down"></i>speed</li>
-                </ul>
-            </div>
-        </section>
-        <!--
-        <section id="informationSection" class="hidden">
-            <h1>Adicione os Dados de seu Pokémon</h1>
-            <div id="informationContent">
-                <div id="naturesContainer">
-                    <h2>Natures</h2>
-                    <ul id="naturesList">
-    
+                    <menu class="nature-list">
+                        <ul>
+                        </ul>
+                    </menu>
+                    <ul class="list-aside">
+                        <li><i class="fa-solid fa-arrow-down"></i>attack</li>
+                        <li><i class="fa-solid fa-arrow-down"></i>defense</li>
+                        <li><i class="fa-solid fa-arrow-down"></i>sp. Attack</li>
+                        <li><i class="fa-solid fa-arrow-down"></i>sp. Defense</li>
+                        <li><i class="fa-solid fa-arrow-down"></i>speed</li>
                     </ul>
                 </div>
-                <div id="ivsContainer">
-                    <h2>IV's</h2>
-                    <div id="inputsContainer">
-                        <input type="range" name="hp" id="hp" min="0" max="31" value="0" data-value="0">
-                        <input type="range" name="atk" id="atk" min="0" max="31" value="0" data-value="0">
-                        <input type="range" name="def" id="def" min="0" max="31" value="0" data-value="0">
-                        <input type="range" name="sp.atk" id="sp.atk" min="0" max="31" value="0" data-value="0">
-                        <input type="range" name="sp.def" id="sp.def" min="0" max="31" value="0" data-value="0">
-                        <input type="range" name="speed" id="speed" min="0" max="31" value="0" data-value="0">
+                <div id="ivInputContainer">
+                    <div class="inputContainer">
+                        <div>
+                            <label for="hp">HP</label>
+                            <input type="text" value="0">
+                        </div>
+                        <input type="range" name="hp" id="hp" value="0" min="0" max="31">
+                    </div>
+                    <div class="inputContainer">
+                        <div>
+                            <label for="attack">Attack</label>
+                            <input type="text" value="0">
+                        </div>
+                        <input type="range" name="atk" id="attack" value="0" min="0" max="31">
+                    </div>
+                    <div class="inputContainer">
+                        <div>
+                            <label for="defense">Defense</label>
+                            <input type="text" value="0">
+                        </div>
+                        <input type="range" name="defense" id="defense" value="0" min="0" max="31">
+                    </div>
+                    <div class="inputContainer">
+                        <div>
+                            <label for="spatk">Sp.Attack</label>
+                            <input type="text" value="0">
+                        </div>
+                        <input type="range" name="spatk" id="spatk" value="0" min="0" max="31">
+                    </div>
+                    <div class="inputContainer">
+                        <div>
+                            <label for="spdef">Sp.Defense</label>
+                            <input type="text" value="0">
+                        </div>
+                        <input type="range" name="spdef" id="spdef" value="0" min="0" max="31">
+                    </div>
+                    <div class="inputContainer">
+                        <div>
+                            <label for="speed">Speed</label>
+                            <input type="text" value="0">
+                        </div>
+                        <input type="range" name="speed" id="speed" value="0" min="0" max="31">
                     </div>
                 </div>
-            </div>
-            <button id="buttonCheck" disabled>Check Your Pokémon!</button>
+            </section>
+            <button id="buttonConfirm" disabled>Veja os Resultados <i class="fas fa-arrow-right"></i></button>
+            <button id="buttonNext" disabled><i class="fas fa-arrow-right"></i></button>
         </section>
-        -->
         <section id="resultSection" class="hidden">
             <h1>Avaliação do seu Pokémon</h1>
             <div id="top">

@@ -1,3 +1,4 @@
+@charset "UTF-8";
 @font-face {
   font-family: "pokemon-solid";
   src: url("../../fonts/pokemon/Pokemon Solid.ttf");
@@ -17,6 +18,7 @@
 section#avaliationSection {
   display: flex;
   flex-flow: column;
+  align-items: center;
   gap: 20px;
   width: 100%;
   min-height: 100vh;
@@ -52,24 +54,35 @@ section#avaliationSection div#pokemon img.bg-grass {
   bottom: 0;
   animation: showPokemon 1s;
 }
-section#avaliationSection div#natureListContainer {
+section#avaliationSection section#dataSection {
+  position: relative;
+  display: flex;
+  height: 400px;
+  width: 100vw;
+  transition: 1s ease;
+}
+section#avaliationSection section#dataSection div#natureListContainer {
+  position: absolute;
+  top: 0;
+  left: 0;
   display: grid;
   grid-template-columns: 16% 84%;
   grid-template-rows: 16% 84%;
   grid-template-areas: ". header" "aside list";
   padding: 20px;
   gap: 5px;
-  flex-flow: column;
-  width: 100%;
+  width: 100vw;
+  height: 395px;
+  transition: 1s ease;
 }
-section#avaliationSection div#natureListContainer ul.list-header,
-section#avaliationSection div#natureListContainer ul.list-aside {
+section#avaliationSection section#dataSection div#natureListContainer ul.list-header,
+section#avaliationSection section#dataSection div#natureListContainer ul.list-aside {
   grid-area: header;
   display: flex;
   gap: 5px;
 }
-section#avaliationSection div#natureListContainer ul.list-header li,
-section#avaliationSection div#natureListContainer ul.list-aside li {
+section#avaliationSection section#dataSection div#natureListContainer ul.list-header li,
+section#avaliationSection section#dataSection div#natureListContainer ul.list-aside li {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -79,26 +92,28 @@ section#avaliationSection div#natureListContainer ul.list-aside li {
   background: #2c2c2c;
   height: 55px;
   color: rgb(240, 230, 230);
-  font-size: 16px;
+  font-size: 20px;
+  font-weight: 600;
+  letter-spacing: 1px;
   text-transform: capitalize;
 }
-section#avaliationSection div#natureListContainer ul.list-header li i,
-section#avaliationSection div#natureListContainer ul.list-aside li i {
+section#avaliationSection section#dataSection div#natureListContainer ul.list-header li i,
+section#avaliationSection section#dataSection div#natureListContainer ul.list-aside li i {
   position: absolute;
   top: 50%;
   left: 10px;
   transform: translateY(-50%);
   color: rgb(240, 230, 230);
 }
-section#avaliationSection div#natureListContainer menu.nature-list {
+section#avaliationSection section#dataSection div#natureListContainer menu.nature-list {
   grid-area: list;
 }
-section#avaliationSection div#natureListContainer menu.nature-list ul {
+section#avaliationSection section#dataSection div#natureListContainer menu.nature-list ul {
   display: flex;
   flex-wrap: wrap;
   gap: 5px;
 }
-section#avaliationSection div#natureListContainer menu.nature-list ul li {
+section#avaliationSection section#dataSection div#natureListContainer menu.nature-list ul li {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -113,36 +128,162 @@ section#avaliationSection div#natureListContainer menu.nature-list ul li {
   letter-spacing: 1px;
   transition: 0.5s ease;
 }
-section#avaliationSection div#natureListContainer menu.nature-list ul li:hover {
+section#avaliationSection section#dataSection div#natureListContainer menu.nature-list ul li:hover {
   filter: brightness(0.8);
 }
-section#avaliationSection div#natureListContainer menu.nature-list ul li.atk {
+section#avaliationSection section#dataSection div#natureListContainer menu.nature-list ul li.atk {
   background: #df3c3a;
 }
-section#avaliationSection div#natureListContainer menu.nature-list ul li.def {
+section#avaliationSection section#dataSection div#natureListContainer menu.nature-list ul li.def {
   background: #efa425;
 }
-section#avaliationSection div#natureListContainer menu.nature-list ul li.spatk {
+section#avaliationSection section#dataSection div#natureListContainer menu.nature-list ul li.spatk {
   background: #e83fa7;
 }
-section#avaliationSection div#natureListContainer menu.nature-list ul li.spdef {
+section#avaliationSection section#dataSection div#natureListContainer menu.nature-list ul li.spdef {
   background: #e1d441;
 }
-section#avaliationSection div#natureListContainer menu.nature-list ul li.speed {
+section#avaliationSection section#dataSection div#natureListContainer menu.nature-list ul li.speed {
   background: #29b5e1;
 }
-section#avaliationSection div#natureListContainer menu.nature-list ul li.no-selected {
+section#avaliationSection section#dataSection div#natureListContainer menu.nature-list ul li.no-selected {
   filter: brightness(0.5) !important;
 }
-section#avaliationSection div#natureListContainer menu.nature-list ul li.selected {
+section#avaliationSection section#dataSection div#natureListContainer menu.nature-list ul li.selected {
   filter: brightness(1) !important;
 }
-section#avaliationSection div#natureListContainer ul.list-aside {
+section#avaliationSection section#dataSection div#natureListContainer ul.list-aside {
   grid-area: aside;
   flex-flow: column;
 }
-section#avaliationSection div#natureListContainer ul.list-aside li {
+section#avaliationSection section#dataSection div#natureListContainer ul.list-aside li {
   width: 100%;
+}
+section#avaliationSection section#dataSection div#ivInputContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  top: 0;
+  left: 100%;
+  align-content: center;
+  flex-wrap: wrap;
+  width: 100vw;
+  height: 200px;
+}
+section#avaliationSection section#dataSection div#ivInputContainer div.inputContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-flow: column;
+  width: 33%;
+  height: 70px;
+}
+section#avaliationSection section#dataSection div#ivInputContainer div.inputContainer div {
+  display: flex;
+  justify-content: space-between;
+  width: 200px;
+  height: 35px;
+  color: white;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+          user-select: none;
+}
+section#avaliationSection section#dataSection div#ivInputContainer div.inputContainer label {
+  font-size: 24px;
+  white-space: nowrap;
+  font-weight: 500;
+  letter-spacing: 1px;
+}
+section#avaliationSection section#dataSection div#ivInputContainer div.inputContainer input[type=text] {
+  width: 20px;
+  background: none;
+  font-size: 16px;
+  font-weight: 600;
+  color: white;
+}
+section#avaliationSection section#dataSection div#ivInputContainer div.inputContainer input[type=range] {
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  width: 200px;
+  height: 12px; /* Definir a altura do controle deslizante */
+  background: pink; /* Cor de fundo do controle deslizante */
+  border-radius: 2px; /* Arredondar as bordas do controle deslizante */
+}
+section#avaliationSection section#dataSection div#ivInputContainer div.inputContainer input[type=range]#hp {
+  background: #40c241;
+}
+section#avaliationSection section#dataSection div#ivInputContainer div.inputContainer input[type=range]#attack {
+  background: #df3c3a;
+}
+section#avaliationSection section#dataSection div#ivInputContainer div.inputContainer input[type=range]#defense {
+  background: #e1d441;
+}
+section#avaliationSection section#dataSection div#ivInputContainer div.inputContainer input[type=range]#spatk {
+  background: #e83fa7;
+}
+section#avaliationSection section#dataSection div#ivInputContainer div.inputContainer input[type=range]#spdef {
+  background: #efa425;
+}
+section#avaliationSection section#dataSection div#ivInputContainer div.inputContainer input[type=range]#speed {
+  background: #29b5e1;
+}
+section#avaliationSection section#dataSection div#ivInputContainer div.inputContainer input[type=range]::-webkit-slider-thumb {
+  -webkit-appearance: none; /* Remover a aparência padrão do polegar no Chrome/Safari */
+  appearance: none; /* Remover a aparência padrão do polegar em outros navegadores */
+  width: 30px; /* Definir a largura do polegar */
+  height: 15px; /* Definir a altura do polegar */
+  border: 3px solid white;
+  border-radius: 2px; /* Tornar o polegar redondo */
+  cursor: pointer; /* Alterar o cursor ao passar sobre o polegar */
+}
+section#avaliationSection section#dataSection div#ivInputContainer div.inputContainer input[type=range]::-moz-range-thumb {
+  width: 20px; /* Definir a largura do polegar para o Firefox */
+  height: 20px; /* Definir a altura do polegar para o Firefox */
+  background: #4CAF50; /* Cor de fundo do polegar para o Firefox */
+  border-radius: 50%; /* Tornar o polegar redondo para o Firefox */
+  cursor: pointer; /* Alterar o cursor ao passar sobre o polegar no Firefox */
+}
+section#avaliationSection button {
+  width: 50px;
+  height: 50px;
+  border-radius: 5px;
+  border: 3px solid white;
+  background: transparent;
+  transition: 0.2s ease;
+  cursor: pointer;
+}
+section#avaliationSection button i {
+  font-size: 20px;
+  color: white;
+  transition: 0.2s ease;
+}
+section#avaliationSection button:not(:disabled):hover {
+  background: white;
+  color: black;
+}
+section#avaliationSection button:not(:disabled):hover i {
+  color: black;
+}
+section#avaliationSection button:disabled {
+  opacity: 0.5;
+}
+section#avaliationSection button#buttonConfirm {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  display: none;
+  gap: 20px;
+  width: auto;
+  padding: 0 20px;
+  font-size: 20px;
+  font-weight: 500;
+  letter-spacing: 1px;
+  color: white;
+}
+section#avaliationSection button#buttonConfirm:not(:disabled):hover {
+  color: black;
 }
 
 @keyframes turnOnLights {
