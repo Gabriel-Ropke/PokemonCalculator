@@ -30,22 +30,22 @@ body main {
   height: auto;
   transition: 1s;
 }
-body main *.hp, body main *#hp {
+body main .hp, body main #hp {
   background: #40c241;
 }
-body main *.atk, body main *#atk {
+body main .atk, body main #atk {
   background: #df3c3a;
 }
-body main *.def, body main *#def {
+body main .def, body main #def {
   background: #efa425;
 }
-body main *.spatk, body main *#spatk {
+body main .spatk, body main #spatk {
   background: #e83fa7;
 }
-body main *.spdef, body main *#spdef {
+body main .spdef, body main #spdef {
   background: #e1d441;
 }
-body main *.speed, body main *#speed {
+body main .speed, body main #speed {
   background: #29b5e1;
 }
 body main button {
