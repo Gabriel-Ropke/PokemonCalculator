@@ -14,7 +14,41 @@
   font-family: "permanent-marker";
   src: url("../../fonts/Permanent_Marker/PermanentMarker-Regular.ttf");
 }
-button {
+body {
+  min-height: 100vh;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  background: rgb(10, 29, 52);
+  padding-bottom: 40px;
+}
+body main {
+  position: relative;
+  display: flex;
+  align-items: center;
+  flex-flow: column;
+  width: 100%;
+  height: auto;
+  transition: 1s;
+}
+body main *.hp, body main *#hp {
+  background: #40c241;
+}
+body main *.atk, body main *#atk {
+  background: #df3c3a;
+}
+body main *.def, body main *#def {
+  background: #efa425;
+}
+body main *.spatk, body main *#spatk {
+  background: #e83fa7;
+}
+body main *.spdef, body main *#spdef {
+  background: #e1d441;
+}
+body main *.speed, body main *#speed {
+  background: #29b5e1;
+}
+body main button {
   width: 50px;
   height: 50px;
   border-radius: 5px;
@@ -23,17 +57,17 @@ button {
   transition: 0.3s ease;
   cursor: pointer;
 }
-button i {
+body main button i {
   color: white;
   transition: 0.3s ease;
 }
-button:not(:disabled):hover {
+body main button:not(:disabled):hover {
   background: white;
 }
-button:not(:disabled):hover i {
+body main button:not(:disabled):hover i {
   color: black;
 }
-button#result {
+body main button#result {
   width: auto;
   height: auto;
   padding: 15px 50px;
@@ -43,11 +77,10 @@ button#result {
   color: white;
   margin: 10px 0;
 }
-button#result:hover {
+body main button#result:hover {
   color: black;
 }
-
-section#avaliationSection {
+body main section#avaliationSection {
   display: flex;
   flex-flow: column;
   align-items: center;
@@ -55,20 +88,20 @@ section#avaliationSection {
   width: 100%;
   min-height: 100vh;
 }
-section#avaliationSection div#pokemonContainer {
+body main section#avaliationSection div#pokemonContainer {
   position: relative;
   width: 100%;
   height: 350px;
   margin-bottom: 60px;
 }
-section#avaliationSection div#pokemonContainer div.pokemon {
+body main section#avaliationSection div#pokemonContainer div.pokemon {
   position: absolute;
   left: 50px;
   top: 0;
   width: 600px;
   height: 350px;
 }
-section#avaliationSection div#pokemonContainer div.pokemon span {
+body main section#avaliationSection div#pokemonContainer div.pokemon span {
   position: absolute;
   bottom: -70px;
   left: 50%;
@@ -80,7 +113,7 @@ section#avaliationSection div#pokemonContainer div.pokemon span {
   font-family: "pokemon-solid";
   white-space: nowrap;
 }
-section#avaliationSection div#pokemonContainer div.pokemon button {
+body main section#avaliationSection div#pokemonContainer div.pokemon button {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -90,32 +123,32 @@ section#avaliationSection div#pokemonContainer div.pokemon button {
   z-index: 12;
   border: none;
 }
-section#avaliationSection div#pokemonContainer div.pokemon button i {
+body main section#avaliationSection div#pokemonContainer div.pokemon button i {
   font-weight: 900;
   font-size: 30px;
 }
-section#avaliationSection div#pokemonContainer div.pokemon button#next {
+body main section#avaliationSection div#pokemonContainer div.pokemon button#next {
   left: calc(50% + 250px);
 }
-section#avaliationSection div#pokemonContainer div.pokemon button#preview {
+body main section#avaliationSection div#pokemonContainer div.pokemon button#preview {
   left: calc(50% - 250px);
 }
-section#avaliationSection div#pokemonContainer div.pokemon img, section#avaliationSection div#pokemonContainer div.pokemon h2 {
+body main section#avaliationSection div#pokemonContainer div.pokemon img, body main section#avaliationSection div#pokemonContainer div.pokemon h2 {
   position: absolute;
   left: 50%;
   transform: translateX(-50%);
 }
-section#avaliationSection div#pokemonContainer div.pokemon h2 {
+body main section#avaliationSection div#pokemonContainer div.pokemon h2 {
   font-size: 30px;
   color: #AFAFAF;
 }
-section#avaliationSection div#pokemonContainer div.pokemon img.top-light {
+body main section#avaliationSection div#pokemonContainer div.pokemon img.top-light {
   top: 0;
   height: 100%;
   width: 500px;
   animation: turnOnLights 1s;
 }
-section#avaliationSection div#pokemonContainer div.pokemon img.pokemon-img {
+body main section#avaliationSection div#pokemonContainer div.pokemon img.pokemon-img {
   bottom: 60px;
   max-height: 190px;
   min-width: 150px;
@@ -123,12 +156,12 @@ section#avaliationSection div#pokemonContainer div.pokemon img.pokemon-img {
   z-index: 1;
   animation: showPokemon 1s;
 }
-section#avaliationSection div#pokemonContainer div.pokemon img.bg-grass {
+body main section#avaliationSection div#pokemonContainer div.pokemon img.bg-grass {
   width: 350px;
   bottom: 0;
   animation: showPokemon 1s;
 }
-section#avaliationSection div#pokemonContainer div#baseStats {
+body main section#avaliationSection div#pokemonContainer div#baseStats {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -139,7 +172,7 @@ section#avaliationSection div#pokemonContainer div#baseStats {
   width: calc(100% - 700px);
   height: 100%;
 }
-section#avaliationSection div#pokemonContainer div#baseStats div.stat {
+body main section#avaliationSection div#pokemonContainer div#baseStats div.stat {
   display: flex;
   align-items: center;
   gap: 10px;
@@ -149,49 +182,13 @@ section#avaliationSection div#pokemonContainer div#baseStats div.stat {
      -moz-user-select: none;
           user-select: none;
 }
-section#avaliationSection div#pokemonContainer div#baseStats div.stat.hp div.inner-shadow {
-  background: #40c241;
-}
-section#avaliationSection div#pokemonContainer div#baseStats div.stat.hp div.inner-bar {
-  background: #40c241;
-}
-section#avaliationSection div#pokemonContainer div#baseStats div.stat.atk div.inner-shadow {
-  background: #df3c3a;
-}
-section#avaliationSection div#pokemonContainer div#baseStats div.stat.atk div.inner-bar {
-  background: #df3c3a;
-}
-section#avaliationSection div#pokemonContainer div#baseStats div.stat.def div.inner-shadow {
-  background: #efa425;
-}
-section#avaliationSection div#pokemonContainer div#baseStats div.stat.def div.inner-bar {
-  background: #efa425;
-}
-section#avaliationSection div#pokemonContainer div#baseStats div.stat.spatk div.inner-shadow {
-  background: #e83fa7;
-}
-section#avaliationSection div#pokemonContainer div#baseStats div.stat.spatk div.inner-bar {
-  background: #e83fa7;
-}
-section#avaliationSection div#pokemonContainer div#baseStats div.stat.spdef div.inner-shadow {
-  background: #e1d441;
-}
-section#avaliationSection div#pokemonContainer div#baseStats div.stat.spdef div.inner-bar {
-  background: #e1d441;
-}
-section#avaliationSection div#pokemonContainer div#baseStats div.stat.speed div.inner-shadow {
-  background: #29b5e1;
-}
-section#avaliationSection div#pokemonContainer div#baseStats div.stat.speed div.inner-bar {
-  background: #29b5e1;
-}
-section#avaliationSection div#pokemonContainer div#baseStats div.stat span {
+body main section#avaliationSection div#pokemonContainer div#baseStats div.stat span {
   font-size: 20px;
   color: white;
   width: 90px;
   font-weight: 600;
 }
-section#avaliationSection div#pokemonContainer div#baseStats div.stat div.outer-bar {
+body main section#avaliationSection div#pokemonContainer div#baseStats div.stat div.outer-bar {
   position: relative;
   width: 80%;
   height: 30px;
@@ -199,7 +196,7 @@ section#avaliationSection div#pokemonContainer div#baseStats div.stat div.outer-
   background: white;
   overflow: hidden;
 }
-section#avaliationSection div#pokemonContainer div#baseStats div.stat div.outer-bar div.inner-shadow {
+body main section#avaliationSection div#pokemonContainer div#baseStats div.stat div.outer-bar div.inner-shadow {
   position: absolute;
   top: 0;
   left: 0;
@@ -208,13 +205,13 @@ section#avaliationSection div#pokemonContainer div#baseStats div.stat div.outer-
   height: 100%;
   transition: 0.5s ease;
 }
-section#avaliationSection div#pokemonContainer div#baseStats div.stat div.outer-bar div.inner-bar {
+body main section#avaliationSection div#pokemonContainer div#baseStats div.stat div.outer-bar div.inner-bar {
   width: 80%;
   height: 100%;
   border-radius: 25px;
   transition: 0.3s ease;
 }
-section#avaliationSection div#natureListContainer {
+body main section#avaliationSection div#natureListContainer {
   display: grid;
   grid-template-columns: 16% 84%;
   grid-template-rows: 16% 84%;
@@ -225,14 +222,14 @@ section#avaliationSection div#natureListContainer {
   height: 395px;
   transition: 1s ease;
 }
-section#avaliationSection div#natureListContainer ul.list-header,
-section#avaliationSection div#natureListContainer ul.list-aside {
+body main section#avaliationSection div#natureListContainer ul.list-header,
+body main section#avaliationSection div#natureListContainer ul.list-aside {
   grid-area: header;
   display: flex;
   gap: 5px;
 }
-section#avaliationSection div#natureListContainer ul.list-header li,
-section#avaliationSection div#natureListContainer ul.list-aside li {
+body main section#avaliationSection div#natureListContainer ul.list-header li,
+body main section#avaliationSection div#natureListContainer ul.list-aside li {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -247,23 +244,23 @@ section#avaliationSection div#natureListContainer ul.list-aside li {
   letter-spacing: 1px;
   text-transform: capitalize;
 }
-section#avaliationSection div#natureListContainer ul.list-header li i,
-section#avaliationSection div#natureListContainer ul.list-aside li i {
+body main section#avaliationSection div#natureListContainer ul.list-header li i,
+body main section#avaliationSection div#natureListContainer ul.list-aside li i {
   position: absolute;
   top: 50%;
   left: 10px;
   transform: translateY(-50%);
   color: rgb(240, 230, 230);
 }
-section#avaliationSection div#natureListContainer menu.nature-list {
+body main section#avaliationSection div#natureListContainer menu.nature-list {
   grid-area: list;
 }
-section#avaliationSection div#natureListContainer menu.nature-list ul {
+body main section#avaliationSection div#natureListContainer menu.nature-list ul {
   display: flex;
   flex-wrap: wrap;
   gap: 5px;
 }
-section#avaliationSection div#natureListContainer menu.nature-list ul li {
+body main section#avaliationSection div#natureListContainer menu.nature-list ul li {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -278,38 +275,38 @@ section#avaliationSection div#natureListContainer menu.nature-list ul li {
   letter-spacing: 1px;
   transition: 0.5s ease;
 }
-section#avaliationSection div#natureListContainer menu.nature-list ul li:hover {
+body main section#avaliationSection div#natureListContainer menu.nature-list ul li:hover {
   filter: brightness(0.8);
 }
-section#avaliationSection div#natureListContainer menu.nature-list ul li.atk {
+body main section#avaliationSection div#natureListContainer menu.nature-list ul li.atk {
   background: #df3c3a;
 }
-section#avaliationSection div#natureListContainer menu.nature-list ul li.def {
+body main section#avaliationSection div#natureListContainer menu.nature-list ul li.def {
   background: #efa425;
 }
-section#avaliationSection div#natureListContainer menu.nature-list ul li.spatk {
+body main section#avaliationSection div#natureListContainer menu.nature-list ul li.spatk {
   background: #e83fa7;
 }
-section#avaliationSection div#natureListContainer menu.nature-list ul li.spdef {
+body main section#avaliationSection div#natureListContainer menu.nature-list ul li.spdef {
   background: #e1d441;
 }
-section#avaliationSection div#natureListContainer menu.nature-list ul li.speed {
+body main section#avaliationSection div#natureListContainer menu.nature-list ul li.speed {
   background: #29b5e1;
 }
-section#avaliationSection div#natureListContainer menu.nature-list ul li.no-selected {
+body main section#avaliationSection div#natureListContainer menu.nature-list ul li.no-selected {
   filter: brightness(0.5) !important;
 }
-section#avaliationSection div#natureListContainer menu.nature-list ul li.selected {
+body main section#avaliationSection div#natureListContainer menu.nature-list ul li.selected {
   filter: brightness(1) !important;
 }
-section#avaliationSection div#natureListContainer ul.list-aside {
+body main section#avaliationSection div#natureListContainer ul.list-aside {
   grid-area: aside;
   flex-flow: column;
 }
-section#avaliationSection div#natureListContainer ul.list-aside li {
+body main section#avaliationSection div#natureListContainer ul.list-aside li {
   width: 100%;
 }
-section#avaliationSection div#ivInputContainer {
+body main section#avaliationSection div#ivInputContainer {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -318,7 +315,7 @@ section#avaliationSection div#ivInputContainer {
   width: 100vw;
   height: 200px;
 }
-section#avaliationSection div#ivInputContainer div.inputContainer {
+body main section#avaliationSection div#ivInputContainer div.inputContainer {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -326,7 +323,7 @@ section#avaliationSection div#ivInputContainer div.inputContainer {
   width: 33%;
   height: 70px;
 }
-section#avaliationSection div#ivInputContainer div.inputContainer div {
+body main section#avaliationSection div#ivInputContainer div.inputContainer div {
   display: flex;
   justify-content: space-between;
   width: 200px;
@@ -336,20 +333,20 @@ section#avaliationSection div#ivInputContainer div.inputContainer div {
      -moz-user-select: none;
           user-select: none;
 }
-section#avaliationSection div#ivInputContainer div.inputContainer label {
+body main section#avaliationSection div#ivInputContainer div.inputContainer label {
   font-size: 24px;
   white-space: nowrap;
   font-weight: 500;
   letter-spacing: 1px;
 }
-section#avaliationSection div#ivInputContainer div.inputContainer input[type=text] {
+body main section#avaliationSection div#ivInputContainer div.inputContainer input[type=text] {
   width: 20px;
   background: none;
   font-size: 16px;
   font-weight: 600;
   color: white;
 }
-section#avaliationSection div#ivInputContainer div.inputContainer input[type=range] {
+body main section#avaliationSection div#ivInputContainer div.inputContainer input[type=range] {
   -webkit-appearance: none;
      -moz-appearance: none;
           appearance: none;
@@ -358,25 +355,7 @@ section#avaliationSection div#ivInputContainer div.inputContainer input[type=ran
   background: pink;
   border-radius: 2px;
 }
-section#avaliationSection div#ivInputContainer div.inputContainer input[type=range]#hp {
-  background: #40c241;
-}
-section#avaliationSection div#ivInputContainer div.inputContainer input[type=range]#attack {
-  background: #df3c3a;
-}
-section#avaliationSection div#ivInputContainer div.inputContainer input[type=range]#defense {
-  background: #efa425;
-}
-section#avaliationSection div#ivInputContainer div.inputContainer input[type=range]#spatk {
-  background: #e83fa7;
-}
-section#avaliationSection div#ivInputContainer div.inputContainer input[type=range]#spdef {
-  background: #e1d441;
-}
-section#avaliationSection div#ivInputContainer div.inputContainer input[type=range]#speed {
-  background: #29b5e1;
-}
-section#avaliationSection div#ivInputContainer div.inputContainer input[type=range]::-webkit-slider-thumb {
+body main section#avaliationSection div#ivInputContainer div.inputContainer input[type=range]::-webkit-slider-thumb {
   -webkit-appearance: none;
   appearance: none;
   width: 30px;
@@ -385,15 +364,14 @@ section#avaliationSection div#ivInputContainer div.inputContainer input[type=ran
   border-radius: 2px;
   cursor: pointer;
 }
-section#avaliationSection div#ivInputContainer div.inputContainer input[type=range]::-moz-range-thumb {
+body main section#avaliationSection div#ivInputContainer div.inputContainer input[type=range]::-moz-range-thumb {
   width: 20px;
   height: 20px;
   background: #4CAF50;
   border-radius: 50%;
   cursor: pointer;
 }
-
-div#pokemonListContainer {
+body main div#pokemonListContainer {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -404,7 +382,7 @@ div#pokemonListContainer {
   z-index: 100;
   background: rgba(0, 0, 0, 0.5);
 }
-div#pokemonListContainer ul#pokemonList {
+body main div#pokemonListContainer ul#pokemonList {
   width: 90%;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(100px, auto));
@@ -417,16 +395,16 @@ div#pokemonListContainer ul#pokemonList {
   overflow: hidden;
   transition: 0.5s ease;
 }
-div#pokemonListContainer ul#pokemonList::-webkit-scrollbar {
+body main div#pokemonListContainer ul#pokemonList::-webkit-scrollbar {
   width: 0;
   display: none;
 }
-div#pokemonListContainer ul#pokemonList.open {
+body main div#pokemonListContainer ul#pokemonList.open {
   overflow: auto;
   height: 100vh;
   padding: 0 20px 20px;
 }
-div#pokemonListContainer ul#pokemonList li {
+body main div#pokemonListContainer ul#pokemonList li {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -436,13 +414,13 @@ div#pokemonListContainer ul#pokemonList li {
   border: 3px solid black;
   cursor: pointer;
 }
-div#pokemonListContainer ul#pokemonList li img {
+body main div#pokemonListContainer ul#pokemonList li img {
   max-width: 85px;
   max-height: 85px;
   width: 100%;
   height: 100%;
 }
-div#pokemonListContainer ul#pokemonList li:hover, div#pokemonListContainer ul#pokemonList li.selected {
+body main div#pokemonListContainer ul#pokemonList li:hover, body main div#pokemonListContainer ul#pokemonList li.selected {
   border: 3px solid white !important;
 }
 
@@ -464,5 +442,23 @@ div#pokemonListContainer ul#pokemonList li:hover, div#pokemonListContainer ul#po
   100% {
     left: 50%;
     opacity: 1;
+  }
+}
+@keyframes closeResult {
+  0% {
+    height: 400px;
+    opacity: 1;
+  }
+  100% {
+    height: 0px;
+    opacity: 0;
+  }
+}
+@keyframes openResult {
+  0% {
+    height: 0px;
+  }
+  100% {
+    height: 400px;
   }
 }/*# sourceMappingURL=avaliation.css.map */
