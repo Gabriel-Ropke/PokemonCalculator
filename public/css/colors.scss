@@ -3,7 +3,18 @@ $items_background: rgb(112, 112, 112);
 $items_border: rgb(161, 161, 161);
 $title_color: rgb(240, 230, 230);
 $bug: red;
-
+$hp: #40c241;
+$atk: #df3c3a;
+$def: #efa425;
+$spatk: #e83fa7;
+$spdef: #e1d441;
+$speed: #29b5e1;
+$hpRgba: 64, 194, 65;
+$atkRgba: 223, 60, 58;
+$defRgba: 239, 164, 37;
+$spatkRgba: 232, 63, 167;
+$spdefRgba: 225, 212, 65;
+$speedRgba: 41, 181, 225;
 @font-face {
     font-family: "pokemon-solid";
     src: url("../../fonts/pokemon/Pokemon\ Solid.ttf");

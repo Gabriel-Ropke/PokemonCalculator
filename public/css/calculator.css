@@ -71,49 +71,24 @@ main {
   position: relative;
   display: flex;
   align-items: center;
-  flex-flow: row;
+  flex-flow: column;
   width: 100%;
   height: auto;
   transition: 1s;
 }
 main section#pokemonSection {
-  position: relative;
-  width: 100vw;
-  padding: 10px 0 50px;
   display: flex;
   align-items: center;
   justify-content: center;
+  position: relative;
   flex-flow: column;
+  width: 100vw;
+  padding: 10px 0 50px;
 }
 main section#pokemonSection h1 {
   width: 100%;
   text-align: center;
   margin: 10px 0;
-}
-main section#pokemonSection ul#pokemonList {
-  width: 90%;
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(100px, auto));
-  border-collapse: collapse;
-}
-main section#pokemonSection ul#pokemonList li {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 100%;
-  height: 100px;
-  background: white;
-  border: 3px solid black;
-  cursor: pointer;
-}
-main section#pokemonSection ul#pokemonList li img {
-  max-width: 85px;
-  max-height: 85px;
-  width: 100%;
-  height: 100%;
-}
-main section#pokemonSection ul#pokemonList li:hover, main section#pokemonSection ul#pokemonList li.selected {
-  border: 3px solid white !important;
 }
 main section#pokemonSection div#selectedPokemon {
   position: fixed;

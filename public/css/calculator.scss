@@ -51,46 +51,22 @@ div#transitionScreen {
 }
 main {
     position: relative;
-    display: flex; 
+    display: flex;
     align-items: center;
-    flex-flow: row;
+    flex-flow: column;
     width: 100%;
     height: auto;
     transition: 1s;
     section#pokemonSection {
+        @include flexCenter();
         position: relative;
+        flex-flow: column;
         width: 100vw;
         padding: 10px 0 50px;
-        @include flexCenter();
-        flex-flow: column;
         h1 {
             width: 100%;
             text-align: center;
             margin: 10px 0;
-        }
-        ul#pokemonList {
-            width: 90%;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(100px, auto));
-            border-collapse: collapse;
-            li {
-                @include flexCenter();
-                width: 100%;
-                height: 100px;
-                background: white;
-                border: 3px solid black;
-                cursor: pointer;
-                img {
-                    max-width: 85px;
-                    max-height: 85px;
-                    width: 100%;
-                    height: 100%;
-                }
-                &:hover,
-                &.selected {
-                    border: 3px solid white !important;
-                }
-            }
         }
         div#selectedPokemon {
             position: fixed;

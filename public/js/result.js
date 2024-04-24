@@ -84,10 +84,8 @@ export function initResult({ natureSelected, ivs }) {
         console.log(increased, decreased)
         console.log(statDecreasedIndex, statIncreasedIndex)
         const note = increased + decreased;
-        var resultMessage = NatureCategoryArray[note]
-        if(!resultMessage) {
-            resultMessage = "Horrível"
-        }
+        var resultMessage;
+        NatureCategoryArray[note] ? resultMessage = NatureCategoryArray[note] : resultMessage = "Horrível"
 
         console.log(`Nota final é: ${note}`)
         console.log("A Nature é ", resultMessage)
