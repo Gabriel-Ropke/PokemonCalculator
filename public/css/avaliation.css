@@ -352,7 +352,6 @@ body main section#avaliationSection div#ivInputContainer div.inputContainer inpu
           appearance: none;
   width: 200px;
   height: 12px;
-  background: pink;
   border-radius: 2px;
 }
 body main section#avaliationSection div#ivInputContainer div.inputContainer input[type=range]::-webkit-slider-thumb {
