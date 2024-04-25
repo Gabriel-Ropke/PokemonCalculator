@@ -30,11 +30,11 @@ const allRangeInput = ivInputContainer.querySelectorAll("input[type='range']");
 const buttonResult = document.querySelector("button#result")
 
 // ---- Getting Selected Pokémon
-var selectedPokemonId = 1
-var selectedPokemon = allPokemon[selectedPokemonId]
+let selectedPokemonId = 1;
+let selectedPokemon = allPokemon[selectedPokemonId];
 
 // Nature selected
-var natureSelected;
+let natureSelected;
 // ----------------
 
 // Get Ivs Function
@@ -52,24 +52,48 @@ function formatNumber(num) {
 }
 
 // Change Selected Pokémon 
-function changeSelectedPokemon(id) {
-    selectedPokemon = allPokemon[id];
+function changeSelectedPokemon({id, animation}) {
+    selectedPokemonId = id;
+    selectedPokemon = allPokemon[selectedPokemonId];
     pokemonImage.src = selectedPokemon["sprites"]["versions"]['generation-v']['black-white']['animated'].front_default;
     pokemonName.innerText = `${selectedPokemon["name"]} #${formatNumber(id)}`
+    if(animation) {
+        pokemonImage.style.animation = `${animation} 0.5s`
+        buttonNext.disabled = true
+        buttonPreview.disabled = true
+        
+        setTimeout(() => {
+            pokemonImage.style = ""
+            buttonNext.disabled = false;
+            buttonPreview.disabled = false;
+        }, 500);
+    }
+
     actualizeStatValues();
 }
 
 function actualizeStatValues() {
-    for (let i = 0; i < allStatContainer.length; i++) {
-        const baseStat = selectedPokemon["stats"][i]["base_stat"]
+    let bst = 0;
+    for (let i = 0; i < selectedPokemon["stats"].length; i++) {
+        const stat = selectedPokemon["stats"][i]["base_stat"]
         const statContainer = allStatContainer[i]
         const statValue = statContainer.querySelector("span.stat-value")
         const innerBar = statContainer.querySelector("div.inner-bar")
         const innerShadow = statContainer.querySelector("div.inner-shadow")
-        statValue.innerText = baseStat;
-        innerBar.style.width = `${baseStat / 255 * 100}%`
-        innerShadow.style.width = `${baseStat / 255 * 100}%`
+        statValue.innerText = stat;
+        innerBar.style.width = `${stat / 255 * 100}%`
+        innerShadow.style.width = `${stat / 255 * 100}%`
+        bst += stat;
     }
+    const bstContainer = document.querySelector("div#baseStatTotal")
+    const bstInnerBar = bstContainer.querySelector("div.inner-bar")
+    const bstInnerShadow = bstContainer.querySelector("div.inner-shadow")
+    const bstValue = bstContainer.querySelector("span.stat-value")
+
+    bstInnerBar.style.width = `${bst / 550 * 100}%`
+    bstInnerShadow.style.width = `${bst / 550 * 100}%`
+    bstValue.innerText = bst;
+    
 }
 
 // Get Pokémon Attributes Function
@@ -91,8 +115,7 @@ function createPokemonListElements({ src, id, type }) {
     pokemonSelectList.appendChild(liPokemon);
     liPokemon.addEventListener('click', () => {
         selectPokemonInList(id);
-        changeSelectedPokemon(id)
-        selectedPokemonId = id
+        changeSelectedPokemon({id})
         liPokemon.classList.add("selected")
     });
 }
@@ -115,27 +138,33 @@ function createPokemonList() {
         createPokemonListElements({ src, id, type });
     }
 }
-
 // Get Pokemon Informations to create Pokemon List
 export function startPage( ) {
     // Add Pokémon Informations
-    changeSelectedPokemon(1)
+    changeSelectedPokemon({id: 1, animation: "nextPokemon"})
 
     // Add Pokémon Event Listeners 
     pokemonImage.addEventListener("click", () => {
         openSelectList(pokemonSelectList);
     })
     buttonNext.addEventListener("click", () => {
-        selectedPokemonId += 1
-        changeSelectedPokemon(selectedPokemonId)
+        selectedPokemonId += 1;
+        if(selectedPokemonId == 151 ){
+            selectedPokemonId = 1
+        }
+        changeSelectedPokemon({id: selectedPokemonId, animation: "nextPokemon"});
     })
     buttonPreview.addEventListener("click", () => {
         selectedPokemonId -= 1
-        changeSelectedPokemon(selectedPokemonId)
+        if(selectedPokemonId == 0) {
+            selectedPokemonId = 151
+        }
+        changeSelectedPokemon({id: selectedPokemonId, animation: "previewPokemon"});
     })
     buttonResult.addEventListener("click", () => {
         console.log("clicou")
     })
+    
 
     // Create Nature Table 
     for (let i = 0; i < Object.keys(Natures).length; i++) {
@@ -173,6 +202,21 @@ export function startPage( ) {
         rangeInput.oninput = () => {
             textInput.value = rangeInput.value
         }
+        textInput.addEventListener("input", () => {
+            // Remove NaN Characteres
+            textInput.value = textInput.value.replace(/\D/g, '');
+    
+            if (textInput.value == "") {
+                textInput.value = 0
+            }
+
+            let numero = parseInt(textInput.value, 10);
+            if (numero > 31) {
+                numero = 31;
+            }
+            textInput.value = numero
+            rangeInput.value = numero
+        })
     }
 
     // Create Pokémon List

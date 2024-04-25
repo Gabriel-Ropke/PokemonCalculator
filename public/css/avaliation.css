@@ -48,6 +48,9 @@ body main .spdef, body main #spdef {
 body main .speed, body main #speed {
   background: #29b5e1;
 }
+body main .bst, body main #bst {
+  background: gray;
+}
 body main button {
   width: 50px;
   height: 50px;
@@ -148,13 +151,22 @@ body main section#avaliationSection div#pokemonContainer div.pokemon img.top-lig
   width: 500px;
   animation: turnOnLights 1s;
 }
-body main section#avaliationSection div#pokemonContainer div.pokemon img.pokemon-img {
-  bottom: 60px;
-  max-height: 190px;
+body main section#avaliationSection div#pokemonContainer div.pokemon div#pokemonImagesContainer {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: 10px;
+  width: 250px;
+  height: 250px;
+  z-index: 10;
+  overflow: hidden;
+}
+body main section#avaliationSection div#pokemonContainer div.pokemon div#pokemonImagesContainer img.pokemon-img {
   min-width: 150px;
-  min-height: 150px;
-  z-index: 1;
-  animation: showPokemon 1s;
+  min-height: 170px;
+  transition: 0.4s ease;
+  z-index: 10;
+  bottom: 40px;
 }
 body main section#avaliationSection div#pokemonContainer div.pokemon img.bg-grass {
   width: 350px;
@@ -167,7 +179,7 @@ body main section#avaliationSection div#pokemonContainer div#baseStats {
   justify-content: center;
   position: absolute;
   top: 30px;
-  right: 0;
+  right: 30px;
   flex-flow: column;
   width: calc(100% - 700px);
   height: 100%;
@@ -188,6 +200,12 @@ body main section#avaliationSection div#pokemonContainer div#baseStats div.stat 
   width: 90px;
   font-weight: 600;
 }
+body main section#avaliationSection div#pokemonContainer div#baseStats div.stat span.stat-value {
+  width: 50px;
+  font-size: 24px;
+  font-weight: 700;
+  text-align: center;
+}
 body main section#avaliationSection div#pokemonContainer div#baseStats div.stat div.outer-bar {
   position: relative;
   width: 80%;
@@ -203,13 +221,78 @@ body main section#avaliationSection div#pokemonContainer div#baseStats div.stat 
   opacity: 0.5;
   border-radius: 25px;
   height: 100%;
-  transition: 0.5s ease;
+  transition: 0.6s ease;
 }
 body main section#avaliationSection div#pokemonContainer div#baseStats div.stat div.outer-bar div.inner-bar {
   width: 80%;
   height: 100%;
   border-radius: 25px;
   transition: 0.3s ease;
+}
+body main section#avaliationSection div#ivInputContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  align-content: center;
+  flex-wrap: wrap;
+  width: 100vw;
+  height: 200px;
+}
+body main section#avaliationSection div#ivInputContainer div.inputContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-flow: column;
+  width: 33%;
+  height: 70px;
+}
+body main section#avaliationSection div#ivInputContainer div.inputContainer div {
+  display: flex;
+  justify-content: space-between;
+  width: 200px;
+  height: 35px;
+  color: white;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+          user-select: none;
+}
+body main section#avaliationSection div#ivInputContainer div.inputContainer label {
+  font-size: 24px;
+  white-space: nowrap;
+  font-weight: 500;
+  letter-spacing: 1px;
+}
+body main section#avaliationSection div#ivInputContainer div.inputContainer input[type=text] {
+  width: 25px;
+  background: none;
+  font-size: 16px;
+  font-weight: 600;
+  color: white;
+  text-align: right;
+}
+body main section#avaliationSection div#ivInputContainer div.inputContainer input[type=range] {
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  width: 200px;
+  height: 12px;
+  border-radius: 2px;
+}
+body main section#avaliationSection div#ivInputContainer div.inputContainer input[type=range]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 30px;
+  height: 15px;
+  border: 3px solid white;
+  border-radius: 2px;
+  cursor: pointer;
+}
+body main section#avaliationSection div#ivInputContainer div.inputContainer input[type=range]::-moz-range-thumb {
+  width: 20px;
+  height: 20px;
+  background: #4CAF50;
+  border-radius: 50%;
+  cursor: pointer;
 }
 body main section#avaliationSection div#natureListContainer {
   display: grid;
@@ -306,70 +389,6 @@ body main section#avaliationSection div#natureListContainer ul.list-aside {
 body main section#avaliationSection div#natureListContainer ul.list-aside li {
   width: 100%;
 }
-body main section#avaliationSection div#ivInputContainer {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  align-content: center;
-  flex-wrap: wrap;
-  width: 100vw;
-  height: 200px;
-}
-body main section#avaliationSection div#ivInputContainer div.inputContainer {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-flow: column;
-  width: 33%;
-  height: 70px;
-}
-body main section#avaliationSection div#ivInputContainer div.inputContainer div {
-  display: flex;
-  justify-content: space-between;
-  width: 200px;
-  height: 35px;
-  color: white;
-  -webkit-user-select: none;
-     -moz-user-select: none;
-          user-select: none;
-}
-body main section#avaliationSection div#ivInputContainer div.inputContainer label {
-  font-size: 24px;
-  white-space: nowrap;
-  font-weight: 500;
-  letter-spacing: 1px;
-}
-body main section#avaliationSection div#ivInputContainer div.inputContainer input[type=text] {
-  width: 20px;
-  background: none;
-  font-size: 16px;
-  font-weight: 600;
-  color: white;
-}
-body main section#avaliationSection div#ivInputContainer div.inputContainer input[type=range] {
-  -webkit-appearance: none;
-     -moz-appearance: none;
-          appearance: none;
-  width: 200px;
-  height: 12px;
-  border-radius: 2px;
-}
-body main section#avaliationSection div#ivInputContainer div.inputContainer input[type=range]::-webkit-slider-thumb {
-  -webkit-appearance: none;
-  appearance: none;
-  width: 30px;
-  height: 15px;
-  border: 3px solid white;
-  border-radius: 2px;
-  cursor: pointer;
-}
-body main section#avaliationSection div#ivInputContainer div.inputContainer input[type=range]::-moz-range-thumb {
-  width: 20px;
-  height: 20px;
-  background: #4CAF50;
-  border-radius: 50%;
-  cursor: pointer;
-}
 body main div#pokemonListContainer {
   display: flex;
   align-items: center;
@@ -433,16 +452,6 @@ body main div#pokemonListContainer ul#pokemonList li:hover, body main div#pokemo
     opacity: 1;
   }
 }
-@keyframes showPokemon {
-  0% {
-    left: 25%;
-    opacity: 0;
-  }
-  100% {
-    left: 50%;
-    opacity: 1;
-  }
-}
 @keyframes closeResult {
   0% {
     height: 400px;
@@ -459,5 +468,25 @@ body main div#pokemonListContainer ul#pokemonList li:hover, body main div#pokemo
   }
   100% {
     height: 400px;
+  }
+}
+@keyframes nextPokemon {
+  0% {
+    left: 25%;
+    opacity: 0;
+  }
+  100% {
+    left: 50%;
+    opacity: 1;
+  }
+}
+@keyframes previewPokemon {
+  0% {
+    left: 75%;
+    opacity: 0;
+  }
+  100% {
+    left: 50%;
+    opacity: 1;
   }
 }/*# sourceMappingURL=avaliation.css.map */
