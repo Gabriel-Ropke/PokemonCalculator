@@ -16,3 +16,14 @@ export function LockUnlockScroll(isLocked) {
   document.body.style.overflowY = "hidden" :
   document.body.style.overflowY = "visible";
 }
+// Fix only one decimal number
+export function fixedOne(number) {
+  let formattedNumber = number.toFixed(1);
+  let againNumber = parseFloat(formattedNumber);
+  return againNumber;
+} 
+ // Get Id from Url
+export function getIdFromUrl(url) {
+    const parts = url.split("/");
+    return parseInt(parts[parts.length - 2]);
+}

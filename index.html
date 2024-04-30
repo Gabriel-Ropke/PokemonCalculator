@@ -12,6 +12,89 @@
 </head>
 <body>
     <main>
+        <div id="resultContainer">
+            <div class="img-container">
+                <img src="public/img/background_grass_avaliation.png" alt="" class="background-grass">
+                <img src="public/img/charizard.png" alt="" class="pokemon-image">
+            </div>
+            <ul id="iconList">
+                <li class="icon">
+                    <img src="public/img/charizard.png" alt="">
+                </li>
+                <li class="icon">
+                    <img src="public/img/charizard.png" alt="">
+                </li>
+                <li class="icon">
+                    <img src="public/img/charizard.png" alt="">
+                </li>
+            </ul>
+            <ol id="noteList">
+                <li class="note">Nature: <span class="nature-note">7/10</span></li>
+                <li class="note">Pokémon: <span class="pokemon-note">7/10</span></li>
+                <li class="note">Ivs: <span class="ivs-note">7/10</span></li>
+                <li class="note">Total: <span class="total-note">7/10</span></li>
+            </ol>
+            <img src="public/img/A-rank.png" alt="" class="note-img">
+            <div id="resultBaseStats">
+                <div class="stat">
+                    <span class="stat-name">HP</span>
+                    <div class="outer-bar">
+                        <div class="inner-bar hp"></div>
+                        <div class="inner-shadow hp"></div>
+                    </div>
+                    <span class="stat-value">100</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-name">Atk</span>
+                    <div class="outer-bar">
+                        <div class="inner-bar atk"></div>
+                        <div class="inner-shadow atk"></div>
+                    </div>
+                    <span class="stat-value">100</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-name">Def</span>
+                    <div class="outer-bar">
+                        <div class="inner-bar def"></div>
+                        <div class="inner-shadow def"></div>
+                    </div>
+                    <span class="stat-value">100</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-name">Sp. Atk</span>
+                    <div class="outer-bar">
+                        <div class="inner-bar spatk"></div>
+                        <div class="inner-shadow spatk"></div>
+                    </div>
+                    <span class="stat-value">100</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-name">Sp. Def</span>
+                    <div class="outer-bar">
+                        <div class="inner-bar spdef"></div>
+                        <div class="inner-shadow spdef"></div>
+                    </div>
+                    <span class="stat-value">100</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-name">Speed</span>
+                    <div class="outer-bar">
+                        <div class="inner-bar speed"></div>
+                        <div class="inner-shadow speed"></div>
+                    </div>
+                    <span class="stat-value">100</span>
+                </div>
+                <div id="resultBaseStatTotal" class="stat">
+                    <span class="stat-name">BST</span>
+                    <div class="outer-bar">
+                        <div class="inner-bar bst"></div>
+                        <div class="inner-shadow bst"></div>
+                    </div>
+                    <span class="stat-value">525</span>
+                </div>
+            </div>
+            <button id="closeResult"><i class="fas fa-xmark"></i></button>
+        </div>
         <div id="pokemonListContainer">
             <ul id="pokemonList"></ul>
         </div>
@@ -66,7 +149,7 @@
                         </div>
                         <span class="stat-value">100</span>
                     </div>
-                    <div id="baseStatTotal" class="stat">
+                    <div id="avaliationBaseStatTotal" class="stat">
                         <span class="stat-name">BST</span>
                         <div class="outer-bar">
                             <div class="inner-bar bst"></div>
@@ -151,7 +234,7 @@
                 </ul>
             </div>
         </section>
-        <button id="result">Ver resultado</button>
+        <button id="result" disabled>Ver resultado</button>
     </main>
 </body>
 </html>

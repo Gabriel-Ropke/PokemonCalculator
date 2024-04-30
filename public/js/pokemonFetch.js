@@ -25,4 +25,28 @@ const fetchAllPokemon = async () => {
   }
   return pokemonData;
 }
+async function functionFetchUrl(url) {
+  try {
+      const APIResponse = await fetch(url);
+      if (APIResponse.status === 200) {
+          const data = await APIResponse.json();
+          return data;
+      } else {
+          throw new Error(`Este Pokémon não existe`);
+      }
+  } catch (error) {
+      console.error(error.message);
+      throw error;
+  }
+}
+
+// Chama a função e exporta seu resultado
+export const fetchUrl = async (url) => {
+  try {
+      return await functionFetchUrl(url);
+  } catch (error) {
+      console.error('Erro:', error.message);
+      throw error;
+  }
+};
 export const allPokemon = await fetchAllPokemon();

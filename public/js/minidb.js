@@ -148,3 +148,12 @@ export const statColor = {
     "spdef": "#6dc6fe",
     "speed": "#dedb35",
 }
+export const imageNotes = 
+{
+    D: "D-rank.png",
+    C: "C-rank.png",
+    B: "B-rank.png",
+    A: "A-rank.png",
+    S: "S-rank.png",
+    SS: "SS-rank.png",
+}

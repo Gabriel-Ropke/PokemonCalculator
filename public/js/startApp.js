@@ -1,4 +1,4 @@
-import { startPage } from './startFunctions.js';
+import { startPage } from './functions/startFunctions.js';
 
 // Função para iniciar o aplicativo
 function startApp() {
