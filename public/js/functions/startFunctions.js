@@ -1,11 +1,7 @@
-import { imageNotes, typeColors } from "../minidb.js";
+import { allEvolutionChainArray, imageNotes, typeColors } from "../minidb.js";
 import { Natures } from "../minidb.js";
-import { allPokemon, fetchUrl } from "../pokemonFetch.js";
-import {
-  closeSelectList,
-  getIdFromUrl,
-  openSelectList,
-} from "./generalFunctions.js";
+import { allPokemon, auPokemon } from "../pokemonFetch.js";
+import { closeSelectList, openSelectList } from "./generalFunctions.js";
 import {
   getIvNote,
   getNatureResult,
@@ -70,22 +66,16 @@ const resultNoteImage = resultContainer.querySelector("img.note-img");
 // ---- Getting Selected Pokémon
 let selectedPokemonId = 1;
 let selectedPokemon = allPokemon[selectedPokemonId];
-let evolution_chain = 1;
-let basicId = 1;
-let firstStageId = 2;
-let secondStageId = 3;
-let evolutionChainIdArray = [1, 2, 3];
-let evolutionChainArray = [
-  allPokemon[basicId],
-  allPokemon[firstStageId],
-  allPokemon[secondStageId],
-];
+
+// ---- Getting Selected Pokémon Evolution Chain
+let evolutionChainArray = 1;
+
 export let pokemonStats = [];
 
 // Nature selected
 let natureSelected;
 // ----------------
-
+console.log(auPokemon);
 // Get Ivs Function
 function getIvs() {
   const arr = [];
@@ -101,41 +91,6 @@ function formatNumber(num) {
 }
 
 // Result Functions
-
-async function getEvolutionChainIds() {
-  try {
-    const urlSpecies = selectedPokemon.species.url;
-    const dataSpecies = await fetchUrl(urlSpecies);
-    const urlChain = dataSpecies.evolution_chain.url;
-    const dataChain = await fetchUrl(urlChain);
-    const dataBasic = dataChain["chain"]["species"]["url"];
-    basicId = getIdFromUrl(dataBasic);
-    if (dataChain["chain"]["evolves_to"].length > 0) {
-      const dataFirstStage =
-        dataChain["chain"]["evolves_to"][0]["species"]["url"];
-      firstStageId = getIdFromUrl(dataFirstStage);
-
-      if (dataChain["chain"]["evolves_to"][0]["evolves_to"].length > 0) {
-        const dataSecondStage =
-          dataChain["chain"]["evolves_to"][0]["evolves_to"][0]["species"][
-            "url"
-          ];
-        secondStageId = getIdFromUrl(dataSecondStage);
-      }
-    } else {
-      secondStageId = 0;
-      firstStageId = 0;
-    }
-    evolutionChainIdArray = [basicId, firstStageId, secondStageId];
-    evolutionChainArray = [
-      allPokemon[basicId],
-      allPokemon[firstStageId],
-      allPokemon[secondStageId],
-    ];
-  } catch (error) {
-    console.error("Erro na busca de Evolution Chain:", error.message);
-  }
-}
 
 // Change Selected Pokémon
 async function changeSelectedPokemon({ id, animation }) {
@@ -161,7 +116,6 @@ async function changeSelectedPokemon({ id, animation }) {
       buttonPreview.disabled = false;
     }, 500);
   }
-  await getEvolutionChainIds();
 }
 
 // Get Result Informations
@@ -191,51 +145,62 @@ function getResult() {
 
   resultNoteImage.src = `public/img/${noteImage}`;
 }
-
+function getEvolutionChain() {
+  return allEvolutionChainArray.find((array) =>
+    array.includes(selectedPokemonId)
+  );
+}
 function resultPage() {
   getResult();
+
   // Actualize Result Page
   resultIconList.innerHTML = "";
+  evolutionChainArray = getEvolutionChain();
+
   for (let i = 0; i < evolutionChainArray.length; i++) {
+    const id = evolutionChainArray[i];
+
+    const form = allPokemon[id];
+
+    // -- Create Evolution Chain Icons
+    let li = document.createElement("li");
+    let img = document.createElement("img");
+    li.dataset.id = id;
+    img.src =
+      form["sprites"]["versions"]["generation-vii"]["icons"]["front_default"];
+    li.appendChild(img);
+    resultIconList.appendChild(li);
+    li.addEventListener("click", () => {
+      changeSelectedPokemon({ id: id });
+      resultPokemonImage.src =
+        selectedPokemon["sprites"]["versions"]["generation-v"]["black-white"][
+          "animated"
+        ]["front_default"];
+      resultIconList.querySelector("li.selected").classList.remove("selected");
+      li.classList.add("selected");
+
+      // -- Actualize Stat Values
+      actualizeStatValues({
+        statsArray: allResultStatContainer,
+        bstContainer: resultBST,
+      });
+
+      // -- Get Result
+      getResult();
+    });
+    if (id == selectedPokemonId) {
+      resultPokemonImage.src =
+        selectedPokemon["sprites"]["versions"]["generation-v"]["black-white"][
+          "animated"
+        ]["front_default"];
+      li.classList.add("selected");
+    }
+
     // Actualize Base Stats
     actualizeStatValues({
       statsArray: allResultStatContainer,
       bstContainer: resultBST,
     });
-    const id = evolutionChainIdArray[i];
-    if (id != 0) {
-      const form = evolutionChainArray[i];
-      let li = document.createElement("li");
-      let img = document.createElement("img");
-      li.dataset.id = id;
-      img.src =
-        form["sprites"]["versions"]["generation-vii"]["icons"]["front_default"];
-      li.appendChild(img);
-      resultIconList.appendChild(li);
-      li.addEventListener("click", () => {
-        changeSelectedPokemon({ id: id });
-        resultPokemonImage.src =
-          selectedPokemon["sprites"]["versions"]["generation-v"]["black-white"][
-            "animated"
-          ]["front_default"];
-        resultIconList
-          .querySelector("li.selected")
-          .classList.remove("selected");
-        li.classList.add("selected");
-        actualizeStatValues({
-          statsArray: allResultStatContainer,
-          bstContainer: resultBST,
-        });
-        getResult();
-      });
-      if (id == selectedPokemonId) {
-        resultPokemonImage.src =
-          selectedPokemon["sprites"]["versions"]["generation-v"]["black-white"][
-            "animated"
-          ]["front_default"];
-        li.classList.add("selected");
-      }
-    }
   }
 }
 
