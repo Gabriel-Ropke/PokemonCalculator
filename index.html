@@ -1,182 +1,293 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="public/css/calculator.css">
-    <script type="module" defer src="public/js/start.js"></script>
-    <script type="module" defer src="public/js/informations.js"></script>
-    <script type="module" defer src="public/js/result.js"></script>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+      integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" href="public/css/calculator.css" />
+    <link rel="stylesheet" href="public/css/avaliation.css" />
+    <script type="module" defer src="public/js/startApp.js"></script>
     <title>Calculator</title>
-</head>
-<body>
+  </head>
+  <body>
     <main>
-        <section id="pokemonSection">
-            <h1>Select Your Pokémon</h1>
-            <ul id="pokemonList">
-                
-            </ul>
-            <div id="selectedPokemon">
-                <div id="selectedPokemonBackground"></div>
-                <img src="public/img/charizard.png" alt="" id="pokemon">
-                <h2 id="selectedPokemonName">Zubat</h2>
-                <menu id="selectedPokemonOptions">
-                    <ul>
-                        <li>
-                            Press Delete or Backspace to cancel
-                        </li>
-                        <li>
-                            Press Enter to choice
-                        </li>
-                    </ul>
-                </menu>
+      <div id="resultContainer">
+        <div class="img-container">
+          <img
+            src="public/img/background_grass_avaliation.png"
+            alt=""
+            class="background-grass"
+          />
+          <img src="public/img/charizard.png" alt="" class="pokemon-image" />
+        </div>
+        <ul id="iconList">
+          <li class="icon">
+            <img src="public/img/charizard.png" alt="" />
+          </li>
+          <li class="icon">
+            <img src="public/img/charizard.png" alt="" />
+          </li>
+          <li class="icon">
+            <img src="public/img/charizard.png" alt="" />
+          </li>
+        </ul>
+        <ol id="noteList">
+          <li class="note">Nature: <span class="nature-note">7/10</span></li>
+          <li class="note">Pokémon: <span class="pokemon-note">7/10</span></li>
+          <li class="note">Ivs: <span class="ivs-note">7/10</span></li>
+          <li class="note">Total: <span class="total-note">7/10</span></li>
+        </ol>
+        <img src="public/img/A-rank.png" alt="" class="note-img" />
+        <div id="resultBaseStats">
+          <div class="stat">
+            <span class="stat-name">HP</span>
+            <div class="outer-bar">
+              <div class="inner-bar hp"></div>
+              <div class="inner-shadow hp"></div>
             </div>
-            <span id="spanSelect">Press Enter to Select Your Pokémon</span>
-        </section>
-        <div id="transitionScreen"></div>
-        <section id="informationSection" class="hidden">
-            <h1>Adicione os Dados de seu Pokémon</h1>
-            <div id="informationContent">
-                <div id="naturesContainer">
-                    <h2>Natures</h2>
-                    <ul id="naturesList">
-    
-                    </ul>
-                </div>
-                <div id="ivsContainer">
-                    <h2>IV's</h2>
-                    <div id="inputsContainer">
-                        <input type="range" name="hp" id="hp" min="0" max="31" value="0" data-value="0">
-                        <input type="range" name="atk" id="atk" min="0" max="31" value="0" data-value="0">
-                        <input type="range" name="def" id="def" min="0" max="31" value="0" data-value="0">
-                        <input type="range" name="sp.atk" id="sp.atk" min="0" max="31" value="0" data-value="0">
-                        <input type="range" name="sp.def" id="sp.def" min="0" max="31" value="0" data-value="0">
-                        <input type="range" name="speed" id="speed" min="0" max="31" value="0" data-value="0">
-                    </div>
-                </div>
+            <span class="stat-value">100</span>
+          </div>
+          <div class="stat">
+            <span class="stat-name">Atk</span>
+            <div class="outer-bar">
+              <div class="inner-bar atk"></div>
+              <div class="inner-shadow atk"></div>
             </div>
-            <button id="buttonCheck" disabled>Check Your Pokémon!</button>
-        </section>
-        <section id="resultSection" class="hidden">
-            <h1>Avaliação do seu Pokémon</h1>
-            <div id="top">
-                <div id="pokemonImageContainer">
-                    <img src="public/img/charizard.png" alt="">
-                </div>
-                <div id="pokemonStatusContainer">
-                    <div class="stat">
-                        <span class="stat-name">HP</span>
-                        <div class="out-bar">
-                            <div class="inner-bar">
-                                <span class="stat-value">50</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="stat">
-                        <span class="stat-name">Atk</span>
-                        <div class="out-bar">
-                            <div class="inner-bar">
-                                <span class="stat-value">50</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="stat">
-                        <span class="stat-name">Def</span>
-                        <div class="out-bar">
-                            <div class="inner-bar">
-                                <span class="stat-value">50</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="stat">
-                        <span class="stat-name">Sp.Atk</span>
-                        <div class="out-bar">
-                            <div class="inner-bar">
-                                <span class="stat-value">50</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="stat">
-                        <span class="stat-name">Sp.Def</span>
-                        <div class="out-bar">
-                            <div class="inner-bar">
-                                <span class="stat-value">50</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="stat">
-                        <span class="stat-name">Speed</span>
-                        <div class="out-bar">
-                            <div class="inner-bar">
-                                <span class="stat-value">50</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+            <span class="stat-value">100</span>
+          </div>
+          <div class="stat">
+            <span class="stat-name">Def</span>
+            <div class="outer-bar">
+              <div class="inner-bar def"></div>
+              <div class="inner-shadow def"></div>
             </div>
-            <div id="avaliation">
-                <div id="pokemonMovesetAvaliation">
-                    <ul>
-                    </ul>
-                </div>
-                <div id="pokemonNatureAvaliation">
-                    <h4 class="nature">Adamant</h4>
-                    <div>
-                        <span class="increase">+ Sp.Atk</span>
-                        <span class="decrease">- Atk</span>
-                    </div>
-                </div>
-                <div id="pokemonIvAvaliation">
-                    <ul>
-                        <li data-value="30">
-                            <span class="iv-name">hp</span>
-                            <span class="iv-value">30/31</span>
-                        </li>
-                        <li data-value="30">
-                            <span class="iv-name">atk</span>
-                            <span class="iv-value">30/31</span>
-                        </li>
-                        <li data-value="30">
-                            <span class="iv-name">def</span>
-                            <span class="iv-value">30/31</span>
-                        </li>
-                        <li data-value="30">
-                            <span class="iv-name">sp.atk</span>
-                            <span class="iv-value">30/31</span>
-                        </li>
-                        <li data-value="30">
-                            <span class="iv-name">sp.def</span>
-                            <span class="iv-value">30/31</span>
-                        </li>
-                        <li data-value="30">
-                            <span class="iv-name">speed</span>
-                            <span class="iv-value">30/31</span>
-                        </li>
-                    </ul>
-                </div>
+            <span class="stat-value">100</span>
+          </div>
+          <div class="stat">
+            <span class="stat-name">Sp. Atk</span>
+            <div class="outer-bar">
+              <div class="inner-bar spatk"></div>
+              <div class="inner-shadow spatk"></div>
             </div>
-            <div id="resultNote">
-                <div class="note-img-container">
-                    <img src="public/img/A-rank.png" alt="">
-                </div>
-                <span class="final-note">
-                    Rank S 
-                    Score 100
-                </span>
-                <ul id="resultList">
-                    <li>
-                        <span>Pokémon: <span class="item-note pokemon-note">10/10</span></span>
-                    </li>
-                    <li>
-                        <span>Nature: <span class="item-note nature-note">10/10</span></span>
-                    </li>
-                    <li>
-                        <span>Iv's: <span class="item-note iv-note">10/10</span></span>
-                    </li>
-                </ul>
-                <button class="close-btn">X</button>
+            <span class="stat-value">100</span>
+          </div>
+          <div class="stat">
+            <span class="stat-name">Sp. Def</span>
+            <div class="outer-bar">
+              <div class="inner-bar spdef"></div>
+              <div class="inner-shadow spdef"></div>
             </div>
-        </section>
+            <span class="stat-value">100</span>
+          </div>
+          <div class="stat">
+            <span class="stat-name">Speed</span>
+            <div class="outer-bar">
+              <div class="inner-bar speed"></div>
+              <div class="inner-shadow speed"></div>
+            </div>
+            <span class="stat-value">100</span>
+          </div>
+          <div id="resultBaseStatTotal" class="stat">
+            <span class="stat-name">BST</span>
+            <div class="outer-bar">
+              <div class="inner-bar bst"></div>
+              <div class="inner-shadow bst"></div>
+            </div>
+            <span class="stat-value">525</span>
+          </div>
+        </div>
+        <button id="closeResult"><i class="fas fa-xmark"></i></button>
+      </div>
+      <div id="pokemonListContainer">
+        <ul id="pokemonList"></ul>
+      </div>
+      <section id="avaliationSection">
+        <div id="pokemonContainer">
+          <div id="baseStats">
+            <div class="stat">
+              <span class="stat-name">HP</span>
+              <div class="outer-bar">
+                <div class="inner-bar hp"></div>
+                <div class="inner-shadow hp"></div>
+              </div>
+              <span class="stat-value">100</span>
+            </div>
+            <div class="stat">
+              <span class="stat-name">Atk</span>
+              <div class="outer-bar">
+                <div class="inner-bar atk"></div>
+                <div class="inner-shadow atk"></div>
+              </div>
+              <span class="stat-value">100</span>
+            </div>
+            <div class="stat">
+              <span class="stat-name">Def</span>
+              <div class="outer-bar">
+                <div class="inner-bar def"></div>
+                <div class="inner-shadow def"></div>
+              </div>
+              <span class="stat-value">100</span>
+            </div>
+            <div class="stat">
+              <span class="stat-name">Sp. Atk</span>
+              <div class="outer-bar">
+                <div class="inner-bar spatk"></div>
+                <div class="inner-shadow spatk"></div>
+              </div>
+              <span class="stat-value">100</span>
+            </div>
+            <div class="stat">
+              <span class="stat-name">Sp. Def</span>
+              <div class="outer-bar">
+                <div class="inner-bar spdef"></div>
+                <div class="inner-shadow spdef"></div>
+              </div>
+              <span class="stat-value">100</span>
+            </div>
+            <div class="stat">
+              <span class="stat-name">Speed</span>
+              <div class="outer-bar">
+                <div class="inner-bar speed"></div>
+                <div class="inner-shadow speed"></div>
+              </div>
+              <span class="stat-value">100</span>
+            </div>
+            <div id="avaliationBaseStatTotal" class="stat">
+              <span class="stat-name">BST</span>
+              <div class="outer-bar">
+                <div class="inner-bar bst"></div>
+                <div class="inner-shadow bst"></div>
+              </div>
+              <span class="stat-value">525</span>
+            </div>
+          </div>
+          <div class="pokemon">
+            <button id="preview">
+              <i class="fa-solid fa-chevron-left"></i>
+            </button>
+            <button id="next"><i class="fa-solid fa-chevron-right"></i></button>
+            <img
+              class="top-light"
+              src="public/img/top_light_avaliation.png"
+              alt=""
+            />
+            <div id="pokemonImagesContainer">
+              <img class="pokemon-img" src="" alt="" />
+            </div>
+            <img
+              class="bg-grass"
+              src="public/img/background_grass_avaliation.png"
+              alt=""
+            />
+            <span class="pokemon-name"></span>
+          </div>
+        </div>
+        <div id="ivInputContainer">
+          <div class="inputContainer">
+            <div>
+              <label for="hp">HP</label>
+              <input type="text" value="0" />
+            </div>
+            <input type="range" name="hp" id="hp" value="0" min="0" max="31" />
+          </div>
+          <div class="inputContainer">
+            <div>
+              <label for="atk">Attack</label>
+              <input type="text" value="0" />
+            </div>
+            <input
+              type="range"
+              name="atk"
+              id="atk"
+              value="0"
+              min="0"
+              max="31"
+            />
+          </div>
+          <div class="inputContainer">
+            <div>
+              <label for="def">Defense</label>
+              <input type="text" value="0" />
+            </div>
+            <input
+              type="range"
+              name="def"
+              id="def"
+              value="0"
+              min="0"
+              max="31"
+            />
+          </div>
+          <div class="inputContainer">
+            <div>
+              <label for="spatk">Sp.Attack</label>
+              <input type="text" value="0" />
+            </div>
+            <input
+              type="range"
+              name="spatk"
+              id="spatk"
+              value="0"
+              min="0"
+              max="31"
+            />
+          </div>
+          <div class="inputContainer">
+            <div>
+              <label for="spdef">Sp.Defense</label>
+              <input type="text" value="0" />
+            </div>
+            <input
+              type="range"
+              name="spdef"
+              id="spdef"
+              value="0"
+              min="0"
+              max="31"
+            />
+          </div>
+          <div class="inputContainer">
+            <div>
+              <label for="speed">Speed</label>
+              <input type="text" value="0" />
+            </div>
+            <input
+              type="range"
+              name="speed"
+              id="speed"
+              value="0"
+              min="0"
+              max="31"
+            />
+          </div>
+        </div>
+        <div id="natureListContainer">
+          <ul class="list-header">
+            <li><i class="fa-solid fa-arrow-down"></i>attack</li>
+            <li><i class="fa-solid fa-arrow-down"></i>defense</li>
+            <li><i class="fa-solid fa-arrow-down"></i>sp. Attack</li>
+            <li><i class="fa-solid fa-arrow-down"></i>sp. Defense</li>
+            <li><i class="fa-solid fa-arrow-down"></i>speed</li>
+          </ul>
+          <menu class="nature-list">
+            <ul></ul>
+          </menu>
+          <ul class="list-aside">
+            <li><i class="fa-solid fa-arrow-up"></i>attack</li>
+            <li><i class="fa-solid fa-arrow-up"></i>defense</li>
+            <li><i class="fa-solid fa-arrow-up"></i>sp. Attack</li>
+            <li><i class="fa-solid fa-arrow-up"></i>sp. Defense</li>
+            <li><i class="fa-solid fa-arrow-up"></i>speed</li>
+          </ul>
+        </div>
+      </section>
+      <button id="result" disabled>Ver resultado</button>
     </main>
-</body>
+  </body>
 </html>
